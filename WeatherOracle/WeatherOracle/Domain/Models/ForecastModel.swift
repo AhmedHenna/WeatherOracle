@@ -16,4 +16,5 @@ struct Forecast: Identifiable {
     var high: Int
     var low: Int
     var location: String
+    var icon: String
 }

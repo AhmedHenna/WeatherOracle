@@ -50,7 +50,7 @@ struct ForecastCard: View {
                 .font(.subheadline.weight(.semibold))
             
             VStack(spacing: -20) {
-                Image("Sun").resizable().frame(width: 80, height: 80)
+                Image(forecast.icon).resizable().frame(width: 80, height: 80)
                 
                 Text(forecast.probability, format: .percent)
                     .font(.footnote.weight(.semibold))
@@ -61,7 +61,7 @@ struct ForecastCard: View {
             .frame(height: 40)
             .offset(y:-10)
             
-            Text("27°")
+            Text("\(forecast.temperature)°")
                 .font(.title3)
         }
         .padding(.horizontal, 8)
@@ -80,7 +80,8 @@ struct ForecastCard_Previews: PreviewProvider {
                 temperature: 27,
                 high: 30,
                 low: 20,
-                location: "Sample Location"
+                location: "Sample Location",
+                icon: "Sun"
             ),
             forecastPeriod: .daily
         )

@@ -8,13 +8,70 @@
 import SwiftUI
 
 struct WeatherCard: View {
+    var forecast: Forecast
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .bottom) {
+            backgroundShape
+            HStack(alignment: .bottom) {
+                weatherContent
+                Spacer()
+                weatherDescription
+                
+            }
+            .overlay(Image(forecast.icon)
+                .resizable()
+                .frame(width: 300, height: 300)
+                .padding(.trailing, 4)
+                .offset(x: 90, y: -40)
+            )
+            .foregroundColor(.white)
+            .padding(.bottom, 20)
+            .padding(.leading, 20)
+        }
+        .frame(width: 340, height: 180, alignment: .bottom)
+    }
+    
+    var backgroundShape : some View{
+        Trapezoid()
+            .fill(Color.linearWidgetBackground)
+            .overlay(
+                Trapezoid()
+                    .stroke(Color.white, lineWidth: 1)
+            )
+            .frame(width: 340, height: 175)
+    }
+    
+    var weatherContent : some View{
+        VStack(alignment: .leading, spacing: 8) {
+            // MARK: Forecast Temperature
+            Text("\(forecast.temperature)°")
+                .font(.system(size: 64))
+            
+            VStack(alignment: .leading, spacing: 2) {
+                // MARK: Forecast Temperature Range
+                Text("H:\(forecast.high)°  L:\(forecast.low)°")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                
+                // MARK: Forecast Location
+                Text(forecast.location)
+                    .font(.body)
+                    .lineLimit(1)
+            }
+        }
+    }
+    
+    var weatherDescription : some View{
+        Text(forecast.weather.rawValue)
+            .font(.footnote)
+            .padding(.trailing, 24)
     }
 }
 
 struct WeatherCard_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCard()
+        WeatherCard(forecast: Forecast(date: .now, weather: .clear, probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun"))
+            .preferredColorScheme(.dark)
     }
 }
