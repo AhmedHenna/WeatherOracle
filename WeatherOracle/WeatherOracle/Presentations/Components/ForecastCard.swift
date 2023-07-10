@@ -85,5 +85,6 @@ struct ForecastCard_Previews: PreviewProvider {
             ),
             forecastPeriod: .daily
         )
+        .preferredColorScheme(.dark)
     }
 }
