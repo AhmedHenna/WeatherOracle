@@ -53,7 +53,7 @@ struct Tabs: View {
                 HStack {
                     Divider()
                         .frame(width: UIScreen.main.bounds.width / 2, height: 3)
-                        .background(Color("Linear Highlight"))
+                        .background(Color.linearHighlight)
                         .blendMode(.overlay)
                 }
                 .frame(maxWidth: .infinity, alignment: selection == 0 ? .leading : .trailing)
