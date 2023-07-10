@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
+		29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA42A5C1E05007F82C6 /* ForecastCard.swift */; };
+		29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */; };
+		29930CA92A5C1E2C007F82C6 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA82A5C1E2C007F82C6 /* Tabs.swift */; };
+		29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAB2A5C2074007F82C6 /* ForecastModel.swift */; };
+		29930CAE2A5C2085007F82C6 /* ForecastPeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */; };
+		29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAF2A5C208D007F82C6 /* WeatherModel.swift */; };
 		29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */; };
 		29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC42A5204F3008652B5 /* ContentView.swift */; };
 		29B02BC72A5204F4008652B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B02BC62A5204F4008652B5 /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 /* Begin PBXFileReference section */
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		29930CA42A5C1E05007F82C6 /* ForecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCard.swift; sourceTree = "<group>"; };
+		29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCard.swift; sourceTree = "<group>"; };
+		29930CA82A5C1E2C007F82C6 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		29930CAB2A5C2074007F82C6 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPeriodModel.swift; sourceTree = "<group>"; };
+		29930CAF2A5C208D007F82C6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		29B02BBF2A5204F3008652B5 /* WeatherOracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherOracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherOracleApp.swift; sourceTree = "<group>"; };
 		29B02BC42A5204F3008652B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,12 +54,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2931D4212A5C96B0008F1EBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29930CAB2A5C2074007F82C6 /* ForecastModel.swift */,
+				29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */,
+				29930CAF2A5C208D007F82C6 /* WeatherModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		295D2EF82A58892E005F7EF0 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
 				295D2EF92A58897A005F7EF0 /* Views */,
 				295D2EFA2A58899B005F7EF0 /* Extensions */,
 				29BA6ADA2A5B768E00E3C514 /* Shapes */,
+				29930CA32A5C1DE9007F82C6 /* Components */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -70,6 +93,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		29930CA32A5C1DE9007F82C6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				29930CA42A5C1E05007F82C6 /* ForecastCard.swift */,
+				29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */,
+				29930CA82A5C1E2C007F82C6 /* Tabs.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		29930CAA2A5C205E007F82C6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2931D4212A5C96B0008F1EBC /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		29B02BB62A5204F3008652B5 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */,
+				29930CAA2A5C205E007F82C6 /* Domain */,
 				295D2EF82A58892E005F7EF0 /* Presentations */,
 				29B02BC62A5204F4008652B5 /* Assets.xcassets */,
 				29B02BC82A5204F4008652B5 /* Preview Content */,
@@ -185,11 +227,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */,
+				29930CAE2A5C2085007F82C6 /* ForecastPeriodModel.swift in Sources */,
+				29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */,
 				29BA6ADE2A5B76A500E3C514 /* Arc.swift in Sources */,
+				29930CA92A5C1E2C007F82C6 /* Tabs.swift in Sources */,
+				29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
+				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
+				29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */,
 				29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
