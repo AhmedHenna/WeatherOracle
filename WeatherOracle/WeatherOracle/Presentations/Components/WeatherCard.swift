@@ -52,7 +52,7 @@ struct WeatherCard: View {
                 // MARK: Forecast Temperature Range
                 Text("H:\(forecast.high)°  L:\(forecast.low)°")
                     .font(.footnote)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color("Text Secondary"))
                 
                 // MARK: Forecast Location
                 Text(forecast.location)

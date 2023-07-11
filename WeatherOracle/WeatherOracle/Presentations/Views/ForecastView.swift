@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ForecastView: View {
-    var bottomSheetTranslationProrated: CGFloat = 1
+    var bottomSheetTranslationChanged: CGFloat = 1
     @State private var selection = 0
     
     var body: some View {
@@ -18,7 +18,7 @@ struct ForecastView: View {
                 forecastCards
             }
         }
-        .background(Color.linearBackgroundMorning)
+        .backgroundBlur(radius: 25, opaque: true)
         .clipShape(RoundedRectangle(cornerRadius: 44))
         .overlay {
             bottomSheetSeperator
@@ -64,8 +64,6 @@ struct ForecastView: View {
             .frame(maxHeight: .infinity, alignment: .top)
     }
 }
-
-import SwiftUI
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {

@@ -21,7 +21,7 @@ struct TabBar: View {
     
     var arcShape : some View{
         Arc()
-            .fill(Color.linearBackgroundMorning)
+            .fill(Color.linearBackground)
             .frame(height: 88)
     }
     

@@ -39,7 +39,7 @@ struct Tabs: View {
             .frame(minWidth: 0, maxWidth: .infinity)
         }
         .font(.subheadline.weight(.semibold))
-        .foregroundColor(.secondary)
+        .foregroundColor(Color("Text Secondary"))
     }
     
     var seperator : some View{
