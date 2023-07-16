@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290627F32A64A5C900133E63 /* WidgetCardContainer.swift */; };
 		291A10732A5E065300F11549 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 291A10722A5E065300F11549 /* BottomSheet */; };
 		291A10752A5E0AB900F11549 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A10742A5E0AB900F11549 /* Blur.swift */; };
 		291C11422A5CA20800B06919 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11412A5CA20800B06919 /* ForecastView.swift */; };
 		291C11442A5CA76600B06919 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11432A5CA76600B06919 /* TabBar.swift */; };
 		291C11462A5CA7A600B06919 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11452A5CA7A600B06919 /* SearchView.swift */; };
+		292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 292B16B72A641EAE00DD0814 /* FirebaseDatabase */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
+		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
+		298DFFEA2A64974B00ECC3F6 /* SunriseSunsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298DFFE92A64974B00ECC3F6 /* SunriseSunsetView.swift */; };
+		298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */; };
 		29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA42A5C1E05007F82C6 /* ForecastCard.swift */; };
 		29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */; };
 		29930CA92A5C1E2C007F82C6 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CA82A5C1E2C007F82C6 /* Tabs.swift */; };
@@ -30,12 +35,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		290627F32A64A5C900133E63 /* WidgetCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCardContainer.swift; sourceTree = "<group>"; };
 		291A10742A5E0AB900F11549 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		291C11412A5CA20800B06919 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		291C11452A5CA7A600B06919 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		298DFFE92A64974B00ECC3F6 /* SunriseSunsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetView.swift; sourceTree = "<group>"; };
+		298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeModifier.swift; sourceTree = "<group>"; };
 		29930CA42A5C1E05007F82C6 /* ForecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCard.swift; sourceTree = "<group>"; };
 		29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCard.swift; sourceTree = "<group>"; };
 		29930CA82A5C1E2C007F82C6 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
@@ -57,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */,
 				291A10732A5E065300F11549 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,16 +113,27 @@
 				295D2EF62A58803B005F7EF0 /* ColorGradients.swift */,
 				29BA6AD82A5B760400E3C514 /* InnerShadow.swift */,
 				291A10742A5E0AB900F11549 /* Blur.swift */,
+				298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		298DFFE82A64973C00ECC3F6 /* Weather Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				298DFFE92A64974B00ECC3F6 /* SunriseSunsetView.swift */,
+			);
+			path = "Weather Widgets";
 			sourceTree = "<group>";
 		};
 		29930CA32A5C1DE9007F82C6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				298DFFE82A64973C00ECC3F6 /* Weather Widgets */,
 				29930CA42A5C1E05007F82C6 /* ForecastCard.swift */,
 				29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */,
 				29930CA82A5C1E2C007F82C6 /* Tabs.swift */,
+				290627F32A64A5C900133E63 /* WidgetCardContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -147,6 +168,7 @@
 				29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */,
 				29930CAA2A5C205E007F82C6 /* Domain */,
 				295D2EF82A58892E005F7EF0 /* Presentations */,
+				298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */,
 				29B02BC62A5204F4008652B5 /* Assets.xcassets */,
 				29B02BC82A5204F4008652B5 /* Preview Content */,
 			);
@@ -188,6 +210,7 @@
 			name = WeatherOracle;
 			packageProductDependencies = (
 				291A10722A5E065300F11549 /* BottomSheet */,
+				292B16B72A641EAE00DD0814 /* FirebaseDatabase */,
 			);
 			productName = WeatherOracle;
 			productReference = 29B02BBF2A5204F3008652B5 /* WeatherOracle.app */;
@@ -219,6 +242,7 @@
 			mainGroup = 29B02BB62A5204F3008652B5;
 			packageReferences = (
 				291A10712A5E065300F11549 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				292B16B62A641EAE00DD0814 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 29B02BC02A5204F3008652B5 /* Products */;
 			projectDirPath = "";
@@ -236,6 +260,7 @@
 			files = (
 				29B02BCA2A5204F4008652B5 /* Preview Assets.xcassets in Resources */,
 				29B02BC72A5204F4008652B5 /* Assets.xcassets in Resources */,
+				298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +284,12 @@
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
+				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
 				291C11462A5CA7A600B06919 /* SearchView.swift in Sources */,
+				298DFFEA2A64974B00ECC3F6 /* SunriseSunsetView.swift in Sources */,
 				291C11422A5CA20800B06919 /* ForecastView.swift in Sources */,
 				29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */,
+				298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */,
 				29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +501,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		292B16B62A641EAE00DD0814 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -480,6 +516,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 291A10712A5E065300F11549 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		292B16B72A641EAE00DD0814 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 292B16B62A641EAE00DD0814 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
