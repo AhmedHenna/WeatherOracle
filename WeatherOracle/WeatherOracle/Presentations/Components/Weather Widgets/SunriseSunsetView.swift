@@ -15,10 +15,11 @@ struct SunriseSunsetView: View {
     var body: some View {
         ZStack{
             Color.linearBackgroundNight
-            WidgetCardContainer(icon: "sunrise", title: "SUNRISE", content: {
+            WidgetCardContainer(icon: isSunrise ? "sunrise" : "sunset",
+                                title: isSunrise ? "SUNRISE" : "SUNSET",
+                                content: {
                 content
             })
-            
         }
     }
     
