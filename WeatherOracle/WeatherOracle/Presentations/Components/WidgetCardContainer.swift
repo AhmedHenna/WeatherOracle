@@ -17,11 +17,10 @@ struct WidgetCardContainer<Content: View>: View {
             shape
             VStack (alignment: .leading){
                 iconAndTitle
-                Spacer()
                 content()
             }
             .padding(.vertical, 15)
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 15)
         }
         .frame(width: 164, height: 164)
         

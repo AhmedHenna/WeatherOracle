@@ -24,11 +24,20 @@ struct SunriseSunsetView: View {
     }
     
     var content : some View {
-        VStack (alignment: .leading, spacing: 3){
-            Spacer()
+        VStack (alignment: .leading, spacing: 10){
+            
             Text(currentTime)
                 .font(.title)
                 .foregroundColor(.white)
+            
+            SunPath()
+                .stroke(Color.linearBackgroundMorning, lineWidth: 2)
+                .overlay(content: {
+                    Divider()
+                        .frame(height: 0.5)
+                        .background(Color("Text Secondary"))
+                })
+                .padding(.horizontal, -15)
             
             HStack (spacing: 2){
                 Text(isSunrise ? "Sunset:" : "Sunrise")

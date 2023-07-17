@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290627F32A64A5C900133E63 /* WidgetCardContainer.swift */; };
+		290627F62A64AF1B00133E63 /* SunPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290627F52A64AF1B00133E63 /* SunPath.swift */; };
 		291A10732A5E065300F11549 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 291A10722A5E065300F11549 /* BottomSheet */; };
 		291A10752A5E0AB900F11549 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A10742A5E0AB900F11549 /* Blur.swift */; };
 		291C11422A5CA20800B06919 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11412A5CA20800B06919 /* ForecastView.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		290627F32A64A5C900133E63 /* WidgetCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCardContainer.swift; sourceTree = "<group>"; };
+		290627F52A64AF1B00133E63 /* SunPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunPath.swift; sourceTree = "<group>"; };
 		291A10742A5E0AB900F11549 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		291C11412A5CA20800B06919 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				29BA6ADB2A5B769C00E3C514 /* Trapezoid.swift */,
 				29BA6ADD2A5B76A500E3C514 /* Arc.swift */,
+				290627F52A64AF1B00133E63 /* SunPath.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
+				290627F62A64AF1B00133E63 /* SunPath.swift in Sources */,
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
