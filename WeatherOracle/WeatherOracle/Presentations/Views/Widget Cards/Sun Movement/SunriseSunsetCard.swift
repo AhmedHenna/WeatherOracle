@@ -30,12 +30,8 @@ struct SunriseSunsetView: View {
                 .font(.title)
                 .foregroundColor(.white)
             
-            SunMovement(strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
-                .overlay(content: {
-                    Divider()
-                        .frame(height: 0.5)
-                        .background(Color("Text Secondary"))
-                })
+            SunMovement(hour: 21   ,min: 0 ,
+                        strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
                 .padding(.horizontal, -15)
             
             HStack (spacing: 2){

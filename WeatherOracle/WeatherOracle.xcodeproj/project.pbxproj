@@ -201,7 +201,6 @@
 			children = (
 				29930CA42A5C1E05007F82C6 /* ForecastCard.swift */,
 				291C11412A5CA20800B06919 /* ForecastView.swift */,
-				29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */,
 				29930CA82A5C1E2C007F82C6 /* Tabs.swift */,
 			);
 			path = Views;
@@ -228,9 +227,18 @@
 			isa = PBXGroup;
 			children = (
 				290627F32A64A5C900133E63 /* WidgetCardContainer.swift */,
-				298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */,
+				29D9C2F92A672F8200F6BD11 /* Sun Movement */,
 			);
 			path = "Widget Cards";
+			sourceTree = "<group>";
+		};
+		29D9C2F92A672F8200F6BD11 /* Sun Movement */ = {
+			isa = PBXGroup;
+			children = (
+				29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */,
+				298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */,
+			);
+			path = "Sun Movement";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
