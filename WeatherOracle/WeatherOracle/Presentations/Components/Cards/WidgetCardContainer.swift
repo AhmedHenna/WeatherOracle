@@ -22,14 +22,14 @@ struct WidgetCardContainer<Content: View>: View {
             .padding(.vertical, 15)
             .padding(.horizontal, 15)
         }
-        .frame(width: 164, height: 164)
+        .frame(width: 160, height: 160)
         
         
     }
     
     var shape: some View {
         RoundedRectangle(cornerRadius: 30)
-            .frame(width: 164, height: 164)
+            .frame(width: 160, height: 160)
             .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 4)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
             .strokeStyle(cornerRadius: 30)

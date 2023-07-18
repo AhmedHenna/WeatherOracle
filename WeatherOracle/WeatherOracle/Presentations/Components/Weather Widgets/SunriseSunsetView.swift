@@ -30,8 +30,7 @@ struct SunriseSunsetView: View {
                 .font(.title)
                 .foregroundColor(.white)
             
-            SunPath()
-                .stroke(Color.linearBackgroundMorning, lineWidth: 2)
+            SunMovement(strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
                 .overlay(content: {
                     Divider()
                         .frame(height: 0.5)

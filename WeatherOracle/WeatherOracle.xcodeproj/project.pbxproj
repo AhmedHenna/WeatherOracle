@@ -26,6 +26,7 @@
 		29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAB2A5C2074007F82C6 /* ForecastModel.swift */; };
 		29930CAE2A5C2085007F82C6 /* ForecastPeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */; };
 		29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAF2A5C208D007F82C6 /* WeatherModel.swift */; };
+		299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CFDEF2A65853400FABC2A /* TimeConverter.swift */; };
 		29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */; };
 		29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC42A5204F3008652B5 /* ContentView.swift */; };
 		29B02BC72A5204F4008652B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B02BC62A5204F4008652B5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA6AD82A5B760400E3C514 /* InnerShadow.swift */; };
 		29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA6ADB2A5B769C00E3C514 /* Trapezoid.swift */; };
 		29BA6ADE2A5B76A500E3C514 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BA6ADD2A5B76A500E3C514 /* Arc.swift */; };
+		29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,7 @@
 		29930CAB2A5C2074007F82C6 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 		29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPeriodModel.swift; sourceTree = "<group>"; };
 		29930CAF2A5C208D007F82C6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		299CFDEF2A65853400FABC2A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		29B02BBF2A5204F3008652B5 /* WeatherOracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherOracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherOracleApp.swift; sourceTree = "<group>"; };
 		29B02BC42A5204F3008652B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		29BA6AD82A5B760400E3C514 /* InnerShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadow.swift; sourceTree = "<group>"; };
 		29BA6ADB2A5B769C00E3C514 /* Trapezoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trapezoid.swift; sourceTree = "<group>"; };
 		29BA6ADD2A5B76A500E3C514 /* Arc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
+		29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMovement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		290627F82A64C81E00133E63 /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */,
 				291C11412A5CA20800B06919 /* ForecastView.swift */,
 				291C11432A5CA76600B06919 /* TabBar.swift */,
 			);
@@ -142,6 +147,7 @@
 				29BA6AD82A5B760400E3C514 /* InnerShadow.swift */,
 				291A10742A5E0AB900F11549 /* Blur.swift */,
 				298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */,
+				299CFDEF2A65853400FABC2A /* TimeConverter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				29930CA92A5C1E2C007F82C6 /* Tabs.swift in Sources */,
 				29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */,
 				291A10752A5E0AB900F11549 /* Blur.swift in Sources */,
+				299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
@@ -316,6 +323,7 @@
 				291C11462A5CA7A600B06919 /* SearchView.swift in Sources */,
 				298DFFEA2A64974B00ECC3F6 /* SunriseSunsetView.swift in Sources */,
 				291C11422A5CA20800B06919 /* ForecastView.swift in Sources */,
+				29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */,
 				29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */,
 				298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */,
 				29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */,
