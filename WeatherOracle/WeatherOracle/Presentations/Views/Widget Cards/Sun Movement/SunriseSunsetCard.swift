@@ -16,6 +16,7 @@ struct SunriseSunsetView: View {
         ZStack{
             WidgetCardContainer(icon: isSunrise ? "sunrise" : "sunset",
                                 title: isSunrise ? "SUNRISE" : "SUNSET",
+                                width: 160, height: 160,
                                 content: {
                 content
             })
@@ -30,7 +31,7 @@ struct SunriseSunsetView: View {
             
             SunMovement(hour: 21   ,min: 0 ,
                         strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
-                .padding(.horizontal, -15)
+            .padding(.horizontal, -15)
             
             HStack (spacing: 2){
                 Text(isSunrise ? "Sunset:" : "Sunrise")

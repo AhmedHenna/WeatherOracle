@@ -13,7 +13,7 @@ struct RainfallCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "drop.fill", title: "RAINFALL") {
+        WidgetCardContainer(icon: "drop.fill", title: "RAINFALL", width: 160, height: 160) {
             content
         }
     }

@@ -15,7 +15,7 @@ struct UVIndexCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "sun.max.fill", title: "UV INNDEX") {
+        WidgetCardContainer(icon: "sun.max.fill", title: "UV INNDEX", width: 160, height: 160) {
             content
         }
     }
@@ -29,7 +29,7 @@ struct UVIndexCard: View {
                 Text(uviText(uviValue: uviValue))
             }
             
-            UVIndexMeter(uviValue: uviValue)
+            UVIndexMeter(indexValue: uviValue, numberOfValues: 11)
     
             Spacer()
             
@@ -45,6 +45,6 @@ struct UVIndexCard: View {
 
 struct UVIndexCard_Previews: PreviewProvider {
     static var previews: some View {
-        UVIndexCard(uviValue: 2, startTime: 9, endTime: 6)
+        UVIndexCard(uviValue:  11  , startTime: 9, endTime: 6)
     }
 }

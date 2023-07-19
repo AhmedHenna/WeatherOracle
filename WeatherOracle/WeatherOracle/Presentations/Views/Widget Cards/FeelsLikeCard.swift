@@ -13,7 +13,7 @@ struct FeelsLikeCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "thermometer.medium", title: "FEELS LIKE") {
+        WidgetCardContainer(icon: "thermometer.medium", title: "FEELS LIKE", width: 160, height: 160) {
             content
         }
     }

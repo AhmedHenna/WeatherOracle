@@ -21,6 +21,7 @@
 		291C11442A5CA76600B06919 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11432A5CA76600B06919 /* TabBar.swift */; };
 		291C11462A5CA7A600B06919 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11452A5CA7A600B06919 /* SearchView.swift */; };
 		292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 292B16B72A641EAE00DD0814 /* FirebaseDatabase */; };
+		293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293363762A685F9A00C11E05 /* AirQualityCard.swift */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
 		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
@@ -57,6 +58,7 @@
 		291C11412A5CA20800B06919 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		291C11452A5CA7A600B06919 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		293363762A685F9A00C11E05 /* AirQualityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityCard.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -150,15 +152,6 @@
 				2931D4212A5C96B0008F1EBC /* Models */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		299EFA322A682AA10085C3F1 /* UV Index */ = {
-			isa = PBXGroup;
-			children = (
-				29105BAE2A67EF1A00F5EA67 /* UVIndexCard.swift */,
-				299EFA302A682A9D0085C3F1 /* UVIndexMeter.swift */,
-			);
-			path = "UV Index";
 			sourceTree = "<group>";
 		};
 		299EFA352A684E7B0085C3F1 /* Extensions */ = {
@@ -259,11 +252,13 @@
 			isa = PBXGroup;
 			children = (
 				290627F32A64A5C900133E63 /* WidgetCardContainer.swift */,
+				299EFA302A682A9D0085C3F1 /* UVIndexMeter.swift */,
 				29D9C2F92A672F8200F6BD11 /* Sun Movement */,
-				299EFA322A682AA10085C3F1 /* UV Index */,
+				293363762A685F9A00C11E05 /* AirQualityCard.swift */,
 				29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */,
 				29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */,
 				29105BAA2A67EBB600F5EA67 /* RainfallCard.swift */,
+				29105BAE2A67EF1A00F5EA67 /* UVIndexCard.swift */,
 				29105BA82A67E53800F5EA67 /* VisibilityCard.swift */,
 			);
 			path = "Widget Cards";
@@ -372,6 +367,7 @@
 				29105BA72A67E3CF00F5EA67 /* HumidityCard.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
+				293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
 				290627F62A64AF1B00133E63 /* SunPath.swift in Sources */,

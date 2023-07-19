@@ -13,7 +13,7 @@ struct HumidityCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "humidity", title: "HUMIDITY") {
+        WidgetCardContainer(icon: "humidity", title: "HUMIDITY", width: 160, height: 160) {
             content
         }
     }

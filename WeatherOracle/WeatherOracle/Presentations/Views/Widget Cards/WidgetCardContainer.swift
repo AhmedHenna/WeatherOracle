@@ -10,6 +10,8 @@ import SwiftUI
 struct WidgetCardContainer<Content: View>: View {
     @State var icon: String
     @State var title: String
+    @State var width: CGFloat
+    @State var height: CGFloat
     var content: () -> Content
     
     var body: some View {
@@ -22,14 +24,14 @@ struct WidgetCardContainer<Content: View>: View {
             .padding(.vertical, 15)
             .padding(.horizontal, 15)
         }
-        .frame(width: 160, height: 160)
+        .frame(width: width, height: height)
         
         
     }
     
     var shape: some View {
         RoundedRectangle(cornerRadius: 30)
-            .frame(width: 160, height: 160)
+            .frame(width: width, height: height)
             .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 4)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
             .strokeStyle(cornerRadius: 30)
@@ -48,7 +50,7 @@ struct WidgetCardContainer<Content: View>: View {
 
 struct WidgetCardContainer_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetCardContainer(icon: "sunrise", title: "SUNRISE") {
+        WidgetCardContainer(icon: "sunrise", title: "SUNRISE", width: 160, height: 160) {
             Text("Content")
                 .font(.headline)
                 .foregroundColor(Color("Text Secondary"))
