@@ -10,6 +10,7 @@
 		290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290627F32A64A5C900133E63 /* WidgetCardContainer.swift */; };
 		290627F62A64AF1B00133E63 /* SunPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290627F52A64AF1B00133E63 /* SunPath.swift */; };
 		29105BA42A67DD7B00F5EA67 /* FeelsLikeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */; };
+		29105BA72A67E3CF00F5EA67 /* HumidityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */; };
 		291A10732A5E065300F11549 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 291A10722A5E065300F11549 /* BottomSheet */; };
 		291A10752A5E0AB900F11549 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A10742A5E0AB900F11549 /* Blur.swift */; };
 		291C11422A5CA20800B06919 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11412A5CA20800B06919 /* ForecastView.swift */; };
@@ -42,6 +43,7 @@
 		290627F32A64A5C900133E63 /* WidgetCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCardContainer.swift; sourceTree = "<group>"; };
 		290627F52A64AF1B00133E63 /* SunPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunPath.swift; sourceTree = "<group>"; };
 		29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeelsLikeCard.swift; path = "WeatherOracle/Presentations/Views/Widget Cards/Feels Like/FeelsLikeCard.swift"; sourceTree = SOURCE_ROOT; };
+		29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityCard.swift; sourceTree = "<group>"; };
 		291A10742A5E0AB900F11549 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		291C11412A5CA20800B06919 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				290627F32A64A5C900133E63 /* WidgetCardContainer.swift */,
 				29D9C2F92A672F8200F6BD11 /* Sun Movement */,
 				29105BA52A67DE7F00F5EA67 /* Feels Like */,
+				29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */,
 			);
 			path = "Widget Cards";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */,
 				291A10752A5E0AB900F11549 /* Blur.swift in Sources */,
 				299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */,
+				29105BA72A67E3CF00F5EA67 /* HumidityCard.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
