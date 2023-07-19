@@ -13,7 +13,7 @@ struct VisibilityCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "eye.fill", title: "Visibility") {
+        WidgetCardContainer(icon: "eye.fill", title: "VISIBILITY") {
             content
         }
     }

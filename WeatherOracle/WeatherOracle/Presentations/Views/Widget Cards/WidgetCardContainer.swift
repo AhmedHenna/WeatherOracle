@@ -39,7 +39,6 @@ struct WidgetCardContainer<Content: View>: View {
         HStack(spacing: 2) {
             Image(systemName: icon)
             Text(title)
-                .offset(y: 2)
         }
         .foregroundColor(Color("Text Secondary"))
         .font(.caption)
