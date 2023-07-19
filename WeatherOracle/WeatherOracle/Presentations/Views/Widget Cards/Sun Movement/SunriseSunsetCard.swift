@@ -14,7 +14,6 @@ struct SunriseSunsetView: View {
     
     var body: some View {
         ZStack{
-            Color.linearBackgroundNight
             WidgetCardContainer(icon: isSunrise ? "sunrise" : "sunset",
                                 title: isSunrise ? "SUNRISE" : "SUNSET",
                                 content: {
@@ -28,7 +27,6 @@ struct SunriseSunsetView: View {
             
             Text(currentTime)
                 .font(.title)
-                .foregroundColor(.white)
             
             SunMovement(hour: 21   ,min: 0 ,
                         strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
@@ -38,10 +36,9 @@ struct SunriseSunsetView: View {
                 Text(isSunrise ? "Sunset:" : "Sunrise")
                 Text(sunTime)
             }
-            .foregroundColor(Color(.white))
             .font(.caption)
-            
         }
+        .foregroundColor(.white)
     }
 }
 
