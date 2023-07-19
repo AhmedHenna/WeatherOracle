@@ -34,6 +34,7 @@ struct FeelsLikeCard: View {
         .foregroundColor(.white)
     }
 }
+
 struct FeelsLikeCard_Previews: PreviewProvider {
     static var previews: some View {
         FeelsLikeCard(feelsLikeTemp: 27, actualTemp: 27)

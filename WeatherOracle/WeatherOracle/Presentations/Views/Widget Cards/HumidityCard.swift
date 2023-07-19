@@ -32,6 +32,7 @@ struct HumidityCard: View {
         .foregroundColor(.white)
     }
 }
+
 struct HumidityCard_Previews: PreviewProvider {
     static var previews: some View {
         HumidityCard(humidity: 83, dewPoint: 19)
