@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct UVIndexMeter: View {
+struct IndexMeter: View {
     
     @State var indexValue : Int
     @State var numberOfValues: CGFloat
     @State var circleOffset = CGFloat(0)
+    @State var barColor : LinearGradient
     
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct UVIndexMeter: View {
                 
                 
                 RoundedRectangle(cornerRadius: 2.5)
-                    .fill(Color.linearUVIndexMeter)
+                    .fill(barColor)
                     .frame(width: geometry.size.width, height: 5)
                     .overlay(alignment: .leading){
                         Circle()
@@ -41,6 +42,6 @@ struct UVIndexMeter: View {
 
 struct UVIndexMeter_Previews: PreviewProvider {
     static var previews: some View {
-        UVIndexMeter(indexValue: 10, numberOfValues: 11)
+        IndexMeter(indexValue: 10, numberOfValues: 11, barColor: Color.linearUVIndexMeter)
     }
 }

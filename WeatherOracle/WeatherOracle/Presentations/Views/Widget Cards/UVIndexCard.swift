@@ -29,7 +29,7 @@ struct UVIndexCard: View {
                 Text(uviText(uviValue: uviValue))
             }
             
-            UVIndexMeter(indexValue: uviValue, numberOfValues: 11)
+            IndexMeter(indexValue: uviValue, numberOfValues: 11, barColor: Color.linearUVIndexMeter)
     
             Spacer()
             

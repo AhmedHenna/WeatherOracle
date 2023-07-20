@@ -30,7 +30,7 @@ struct AirQualityCard: View {
                 Text("- \(airQualityTitle(aqiValue:aqiValue))")
             }
             
-            UVIndexMeter(indexValue: aqiValue, numberOfValues: 500)
+            IndexMeter(indexValue: aqiValue, numberOfValues: 500, barColor: Color.linearAirQualityMeter)
     
             Spacer()
             
@@ -46,6 +46,6 @@ struct AirQualityCard: View {
 
 struct AirQualityCard_Previews: PreviewProvider {
     static var previews: some View {
-        AirQualityCard(aqiValue: 70, startTime: 9, endTime: 6)
+        AirQualityCard(aqiValue: 75, startTime: 9, endTime: 6)
     }
 }
