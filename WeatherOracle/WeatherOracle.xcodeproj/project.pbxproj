@@ -22,6 +22,10 @@
 		291C11462A5CA7A600B06919 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11452A5CA7A600B06919 /* SearchView.swift */; };
 		292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 292B16B72A641EAE00DD0814 /* FirebaseDatabase */; };
 		293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293363762A685F9A00C11E05 /* AirQualityCard.swift */; };
+		295398252A6954C200850478 /* WindCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398242A6954C200850478 /* WindCard.swift */; };
+		295398272A6954CC00850478 /* PressureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398262A6954CC00850478 /* PressureCard.swift */; };
+		295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398282A6958B400850478 /* PressureSemiCircle.swift */; };
+		2953982B2A696BFA00850478 /* Glow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2953982A2A696BFA00850478 /* Glow.swift */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
 		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
@@ -59,6 +63,10 @@
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		291C11452A5CA7A600B06919 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		293363762A685F9A00C11E05 /* AirQualityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityCard.swift; sourceTree = "<group>"; };
+		295398242A6954C200850478 /* WindCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindCard.swift; sourceTree = "<group>"; };
+		295398262A6954CC00850478 /* PressureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureCard.swift; sourceTree = "<group>"; };
+		295398282A6958B400850478 /* PressureSemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureSemiCircle.swift; sourceTree = "<group>"; };
+		2953982A2A696BFA00850478 /* Glow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glow.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -161,6 +169,7 @@
 				295D2EF62A58803B005F7EF0 /* ColorGradients.swift */,
 				29BA6AD82A5B760400E3C514 /* InnerShadow.swift */,
 				298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */,
+				2953982A2A696BFA00850478 /* Glow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 				29BA6ADB2A5B769C00E3C514 /* Trapezoid.swift */,
 				29BA6ADD2A5B76A500E3C514 /* Arc.swift */,
 				290627F52A64AF1B00133E63 /* SunPath.swift */,
+				295398282A6958B400850478 /* PressureSemiCircle.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -257,9 +267,11 @@
 				293363762A685F9A00C11E05 /* AirQualityCard.swift */,
 				29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */,
 				29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */,
+				295398262A6954CC00850478 /* PressureCard.swift */,
 				29105BAA2A67EBB600F5EA67 /* RainfallCard.swift */,
 				29105BAE2A67EF1A00F5EA67 /* UVIndexCard.swift */,
 				29105BA82A67E53800F5EA67 /* VisibilityCard.swift */,
+				295398242A6954C200850478 /* WindCard.swift */,
 			);
 			path = "Widget Cards";
 			sourceTree = "<group>";
@@ -354,6 +366,7 @@
 			files = (
 				29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */,
 				29930CAE2A5C2085007F82C6 /* ForecastPeriodModel.swift in Sources */,
+				295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */,
 				29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */,
 				29105BAD2A67EDD300F5EA67 /* TextHelpers.swift in Sources */,
 				29BA6ADE2A5B76A500E3C514 /* Arc.swift in Sources */,
@@ -372,7 +385,9 @@
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
 				290627F62A64AF1B00133E63 /* SunPath.swift in Sources */,
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
+				2953982B2A696BFA00850478 /* Glow.swift in Sources */,
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
+				295398252A6954C200850478 /* WindCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
 				29105BA92A67E53800F5EA67 /* VisibilityCard.swift in Sources */,
 				291C11462A5CA7A600B06919 /* SearchView.swift in Sources */,
@@ -381,6 +396,7 @@
 				29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */,
 				29105BA42A67DD7B00F5EA67 /* FeelsLikeCard.swift in Sources */,
 				29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */,
+				295398272A6954CC00850478 /* PressureCard.swift in Sources */,
 				298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */,
 				29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */,
 			);

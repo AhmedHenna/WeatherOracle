@@ -9,8 +9,8 @@ import Foundation
 
 func formatNumber(_ number: Double) -> String {
     let formatter = NumberFormatter()
-    formatter.minimumFractionDigits = 0
-    formatter.maximumFractionDigits = 16 // Adjust this value based on your precision needs
+    formatter.minimumFractionDigits = 1
+    formatter.maximumFractionDigits = 2 // Adjust this value based on your precision needs
     
     return String(formatter.string(from: NSNumber(value: number)) ?? "")
 }
