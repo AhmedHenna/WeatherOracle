@@ -47,6 +47,6 @@ struct PressureCard: View {
 
 struct PressureCard_Previews: PreviewProvider {
     static var previews: some View {
-        PressureCard(pressure: 1013)
+        PressureCard(pressure: 1000)
     }
 }

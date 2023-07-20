@@ -10,6 +10,7 @@ import SwiftUI
 struct PressureSemiCircle: View {
     @State var pressureValue : Double
     @State var rotation: Double
+    @State var animation = CGFloat(0)
     
     var body: some View {
         
@@ -25,7 +26,12 @@ struct PressureSemiCircle: View {
                     .frame(width: 15, height: 4)
                     .glow()
                     .offset(x: -50)
-                    .rotationEffect(.degrees(pressureValue > 31 ? 225 : rotation - 45))
+                    .rotationEffect(.degrees(animation))
+                    .onAppear(){
+                        withAnimation(Animation.easeOut(duration: 2)){
+                            self.animation = pressureValue > 31 ? 225 : rotation - 45
+                        }
+                    }
             }
         .frame(width: 100, height: 100)
         

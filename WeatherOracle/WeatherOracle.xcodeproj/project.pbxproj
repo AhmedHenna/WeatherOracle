@@ -124,6 +124,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2953982C2A69958400850478 /* Pressure Card */ = {
+			isa = PBXGroup;
+			children = (
+				295398262A6954CC00850478 /* PressureCard.swift */,
+				295398282A6958B400850478 /* PressureSemiCircle.swift */,
+			);
+			path = "Pressure Card";
+			sourceTree = "<group>";
+		};
 		295D2EF82A58892E005F7EF0 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +226,6 @@
 				29BA6ADB2A5B769C00E3C514 /* Trapezoid.swift */,
 				29BA6ADD2A5B76A500E3C514 /* Arc.swift */,
 				290627F52A64AF1B00133E63 /* SunPath.swift */,
-				295398282A6958B400850478 /* PressureSemiCircle.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -263,11 +271,11 @@
 			children = (
 				290627F32A64A5C900133E63 /* WidgetCardContainer.swift */,
 				299EFA302A682A9D0085C3F1 /* IndexMeter.swift */,
-				29D9C2F92A672F8200F6BD11 /* Sun Movement */,
+				2953982C2A69958400850478 /* Pressure Card */,
+				29D9C2F92A672F8200F6BD11 /* Sun Movement Card */,
 				293363762A685F9A00C11E05 /* AirQualityCard.swift */,
 				29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */,
 				29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */,
-				295398262A6954CC00850478 /* PressureCard.swift */,
 				29105BAA2A67EBB600F5EA67 /* RainfallCard.swift */,
 				29105BAE2A67EF1A00F5EA67 /* UVIndexCard.swift */,
 				29105BA82A67E53800F5EA67 /* VisibilityCard.swift */,
@@ -276,13 +284,13 @@
 			path = "Widget Cards";
 			sourceTree = "<group>";
 		};
-		29D9C2F92A672F8200F6BD11 /* Sun Movement */ = {
+		29D9C2F92A672F8200F6BD11 /* Sun Movement Card */ = {
 			isa = PBXGroup;
 			children = (
 				29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */,
 				298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */,
 			);
-			path = "Sun Movement";
+			path = "Sun Movement Card";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
