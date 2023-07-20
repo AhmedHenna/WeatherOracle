@@ -26,6 +26,7 @@
 		295398272A6954CC00850478 /* PressureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398262A6954CC00850478 /* PressureCard.swift */; };
 		295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398282A6958B400850478 /* PressureSemiCircle.swift */; };
 		2953982B2A696BFA00850478 /* Glow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2953982A2A696BFA00850478 /* Glow.swift */; };
+		2953982E2A69A14600850478 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2953982D2A69A14600850478 /* Compass.swift */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
 		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
@@ -67,6 +68,7 @@
 		295398262A6954CC00850478 /* PressureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureCard.swift; sourceTree = "<group>"; };
 		295398282A6958B400850478 /* PressureSemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureSemiCircle.swift; sourceTree = "<group>"; };
 		2953982A2A696BFA00850478 /* Glow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glow.swift; sourceTree = "<group>"; };
+		2953982D2A69A14600850478 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -131,6 +133,15 @@
 				295398282A6958B400850478 /* PressureSemiCircle.swift */,
 			);
 			path = "Pressure Card";
+			sourceTree = "<group>";
+		};
+		2953982F2A69AF5B00850478 /* Wind Card */ = {
+			isa = PBXGroup;
+			children = (
+				2953982D2A69A14600850478 /* Compass.swift */,
+				295398242A6954C200850478 /* WindCard.swift */,
+			);
+			path = "Wind Card";
 			sourceTree = "<group>";
 		};
 		295D2EF82A58892E005F7EF0 /* Presentations */ = {
@@ -273,13 +284,13 @@
 				299EFA302A682A9D0085C3F1 /* IndexMeter.swift */,
 				2953982C2A69958400850478 /* Pressure Card */,
 				29D9C2F92A672F8200F6BD11 /* Sun Movement Card */,
+				2953982F2A69AF5B00850478 /* Wind Card */,
 				293363762A685F9A00C11E05 /* AirQualityCard.swift */,
 				29105BA32A67DD7B00F5EA67 /* FeelsLikeCard.swift */,
 				29105BA62A67E3CF00F5EA67 /* HumidityCard.swift */,
 				29105BAA2A67EBB600F5EA67 /* RainfallCard.swift */,
 				29105BAE2A67EF1A00F5EA67 /* UVIndexCard.swift */,
 				29105BA82A67E53800F5EA67 /* VisibilityCard.swift */,
-				295398242A6954C200850478 /* WindCard.swift */,
 			);
 			path = "Widget Cards";
 			sourceTree = "<group>";
@@ -398,6 +409,7 @@
 				295398252A6954C200850478 /* WindCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
 				29105BA92A67E53800F5EA67 /* VisibilityCard.swift in Sources */,
+				2953982E2A69A14600850478 /* Compass.swift in Sources */,
 				291C11462A5CA7A600B06919 /* SearchView.swift in Sources */,
 				298DFFEA2A64974B00ECC3F6 /* SunriseSunsetCard.swift in Sources */,
 				291C11422A5CA20800B06919 /* ForecastView.swift in Sources */,
