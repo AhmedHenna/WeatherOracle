@@ -86,7 +86,7 @@ struct HomeView: View {
             let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
             BottomSheetView(position: $bottomSheetPosition) {
             } content: {
-                ForecastView(bottomSheetTranslationChanged: bottomSheetTranslationChanged)
+                ForecastView(bottomSheetTranslationChanged: bottomSheetTranslationChanged, hasDragged: $hasDragged)
                     .foregroundColor(.white)
             }
             .onBottomSheetDrag { translation in

@@ -10,12 +10,17 @@ import SwiftUI
 struct ForecastView: View {
     var bottomSheetTranslationChanged: CGFloat = 1
     @State private var selection = 0
+    @Binding var hasDragged: Bool
     
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
                 Tabs(selection: $selection)
                 forecastCards
+                
+                if hasDragged {
+                    widgets
+                }
             }
         }
         .backgroundBlur(radius: 25, opaque: true)
@@ -63,11 +68,33 @@ struct ForecastView: View {
             .frame(height: 20)
             .frame(maxHeight: .infinity, alignment: .top)
     }
+    
+    var widgets : some View{
+        VStack{
+            AirQualityCard(aqiValue: 75, startTime: 9, endTime: 6)
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
+                FeelsLikeCard(feelsLikeTemp: 55, actualTemp: 80)
+                UVIndexCard(uviValue:  5  , startTime: 9, endTime: 6)
+                HumidityCard(humidity: 83, dewPoint: 19)
+
+                WindCard(speed: 9.7, direction: 240)
+
+                PressureCard(pressure: 1000)
+                RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
+                VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
+                SunriseSunsetView(isSunrise: true, currentTime: "2:27 AM", sunTime: "9:14")
+
+            }
+            
+        }
+        .padding(15)
+    }
+    
 }
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView()
+        ForecastView(hasDragged: .constant(false))
             .preferredColorScheme(.dark)
     }
 }

@@ -31,9 +31,9 @@ struct WidgetCardContainer<Content: View>: View {
     
     var shape: some View {
         RoundedRectangle(cornerRadius: 30)
+            .fill(.clear)
             .frame(width: width, height: height)
             .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 4)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
             .strokeStyle(cornerRadius: 30)
     }
     
