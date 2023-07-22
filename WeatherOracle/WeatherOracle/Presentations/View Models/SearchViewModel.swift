@@ -16,7 +16,13 @@ class SearchViewModel: ObservableObject {
     
     init() {
         fetchCities()
-        fetchWeatherData(lat: <#T##Double#>, lon: <#T##Double#>)
+        
+        LocationManager.shared.requestLocationPermission()
+        LocationManager.shared.startUpdatingLocation()
+        
+        if let currentLocation = LocationManager.shared.currentLocation {
+            fetchWeatherData(lat: currentLocation.coordinate.latitude, lon: currentLocation.coordinate.longitude)
+        }
     }
     
     private func fetchCities(){

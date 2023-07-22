@@ -7,15 +7,14 @@
 
 import SwiftUI
 import BottomSheet
+import CoreLocation
 
 struct HomeView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var bottomSheetPosition: BottomSheetPosition = .middle
     @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
     @State var hasDragged: Bool = false
-    var bottomSheetTranslationChanged: CGFloat {
-        (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) / (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)
-    }
+    @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
         NavigationView {
@@ -108,6 +107,10 @@ struct HomeView: View {
             bottomSheetPosition = .top
         })
         .offset(y: bottomSheetTranslationChanged * 115)
+    }
+    
+    var bottomSheetTranslationChanged: CGFloat {
+        (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) / (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)
     }
 }
 

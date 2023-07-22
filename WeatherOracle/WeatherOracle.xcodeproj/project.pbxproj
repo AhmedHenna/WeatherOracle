@@ -60,6 +60,7 @@
 		29C3B7712A6C598800951674 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7702A6C598800951674 /* HomeViewModel.swift */; };
 		29C3B7732A6C812100951674 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7722A6C812100951674 /* WeatherRepository.swift */; };
 		29C3B7752A6C819900951674 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7742A6C819900951674 /* OpenWeatherAPI.swift */; };
+		29C3B7792A6C988300951674 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7782A6C988300951674 /* LocationManager.swift */; };
 		29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		29C3B7702A6C598800951674 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		29C3B7722A6C812100951674 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		29C3B7742A6C819900951674 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
+		29C3B7782A6C988300951674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMovement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				29A941F62A6C1BC9005B4272 /* DataInjection.swift */,
+				29C3B7782A6C988300951674 /* LocationManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
 				295398252A6954C200850478 /* WindCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
+				29C3B7792A6C988300951674 /* LocationManager.swift in Sources */,
 				29A941F32A6C1B29005B4272 /* SearchViewModel.swift in Sources */,
 				29C3B76B2A6C577D00951674 /* GetWeatherData.swift in Sources */,
 				29105BA92A67E53800F5EA67 /* VisibilityCard.swift in Sources */,
@@ -665,6 +669,7 @@
 				DEVELOPMENT_TEAM = WJ6BVSDK46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\tThis app uses your location to provide you with local weather forecasts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -694,6 +699,7 @@
 				DEVELOPMENT_TEAM = WJ6BVSDK46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\tThis app uses your location to provide you with local weather forecasts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
