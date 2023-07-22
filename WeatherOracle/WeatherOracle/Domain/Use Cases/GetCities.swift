@@ -7,7 +7,7 @@
 
 
 struct GetCities {
-    let cityDataSource: CityDataSource = DataInjection.shared.provideCityDataSource()
+    private let cityDataSource: CityDataSource = DataInjection.shared.provideCityDataSource()
 
     func execute(completion: @escaping ([City]) -> Void) {
         cityDataSource.fetchCities { cities in

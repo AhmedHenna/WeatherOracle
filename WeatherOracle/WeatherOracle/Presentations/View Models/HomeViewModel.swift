@@ -1,30 +1,18 @@
 //
-//  SearchViewModel.swift
+//  HomeViewModel.swift
 //  WeatherOracle
 //
 //  Created by Ahmed Henna on 7/22/23.
 //
 
-import SwiftUI
-import FirebaseFirestore
+import Foundation
 
-class SearchViewModel: ObservableObject {
-    @Published var cities: [City] = []
+class HomeViewModel : ObservableObject{
     @Published var weatherData : Weather? = nil
-    private let getCities = GetCities()
     private let getWeatherData = GetWeatherData()
     
     init() {
-        fetchCities()
         fetchWeatherData(lat: <#T##Double#>, lon: <#T##Double#>)
-    }
-    
-    private func fetchCities(){
-        getCities.execute { [weak self] cities in
-            DispatchQueue.main.async {
-                self?.cities = cities
-            }
-        }
     }
     
     private func fetchWeatherData(lat: Double, lon: Double) {

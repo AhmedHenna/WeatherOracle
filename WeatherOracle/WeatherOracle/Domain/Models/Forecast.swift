@@ -10,7 +10,7 @@ import Foundation
 struct Forecast: Identifiable {
     var id = UUID()
     var date: Date
-    var weather: Weather
+    var weather: WeatherStuff
     var probability: Int
     var temperature: Int
     var high: Int

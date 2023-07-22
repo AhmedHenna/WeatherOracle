@@ -13,7 +13,7 @@ class DataInjection {
     private init() {}
 
     func provideCityDataSource() -> CityDataSource {
-        return CityFirestoreDataSource.shared
+        return CityRepository.shared
     }
 
     func provideFirestoreManager() -> FirestoreManager {

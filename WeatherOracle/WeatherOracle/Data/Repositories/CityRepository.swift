@@ -9,8 +9,8 @@
 
 import Firebase
 
-class CityFirestoreDataSource: CityDataSource {
-    static let shared = CityFirestoreDataSource()
+class CityRepository: CityDataSource {
+    static let shared = CityRepository()
 
     func fetchCities(completion: @escaping ([City]) -> Void) {
         DataInjection.shared.provideFirestoreManager().fetchCities { cities in
