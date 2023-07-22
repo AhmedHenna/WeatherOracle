@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 class SearchViewModel: ObservableObject {
     @Published var cities: [City] = []

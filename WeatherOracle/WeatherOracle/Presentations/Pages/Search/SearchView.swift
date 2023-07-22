@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @State var text = ""
-    @StateObject private var viewModel: SearchViewModel = SearchViewModel()
+    @StateObject private var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationView {
@@ -20,13 +20,13 @@ struct SearchView: View {
             .background(Color.linearBackgroundMorning)
             .searchable(text: $text, placement:
                     .navigationBarDrawer(displayMode: .always), prompt: Text("Cairo, New York, Dubai")){
-                        ForEach(Forecast.cities){ suggestion in
+                        ForEach(viewModel.cities){ suggestion in
                             if text == "" {
                                 Button {
-                                    text = suggestion.location
+                                    text = suggestion.cityName
                                 } label:{
-                                    Text(suggestion.location)
-                                        .searchCompletion(suggestion.location)
+                                    Text(suggestion.cityName)
+                                        .searchCompletion(suggestion.cityName)
                                 }
                             }
                         }
@@ -46,8 +46,6 @@ struct SearchView: View {
         
     }
 }
-
-
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
