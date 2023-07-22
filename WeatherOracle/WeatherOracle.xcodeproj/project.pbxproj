@@ -40,6 +40,14 @@
 		29930CB02A5C208D007F82C6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29930CAF2A5C208D007F82C6 /* WeatherModel.swift */; };
 		299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299CFDEF2A65853400FABC2A /* TimeConverter.swift */; };
 		299EFA312A682A9D0085C3F1 /* IndexMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299EFA302A682A9D0085C3F1 /* IndexMeter.swift */; };
+		29A941EA2A6C17E2005B4272 /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941E92A6C17E2005B4272 /* CityDataSource.swift */; };
+		29A941EC2A6C180C005B4272 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941EB2A6C180C005B4272 /* City.swift */; };
+		29A941EE2A6C18AE005B4272 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */; };
+		29A941F12A6C18F5005B4272 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 29A941F02A6C18F5005B4272 /* FirebaseFirestore */; };
+		29A941F32A6C1B29005B4272 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941F22A6C1B29005B4272 /* SearchViewModel.swift */; };
+		29A941F72A6C1BC9005B4272 /* DataInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941F62A6C1BC9005B4272 /* DataInjection.swift */; };
+		29A941F92A6C1EAB005B4272 /* CityFirestoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941F82A6C1EAB005B4272 /* CityFirestoreDataSource.swift */; };
+		29A941FC2A6C2013005B4272 /* GetCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941FB2A6C2013005B4272 /* GetCities.swift */; };
 		29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */; };
 		29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B02BC42A5204F3008652B5 /* ContentView.swift */; };
 		29B02BC72A5204F4008652B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B02BC62A5204F4008652B5 /* Assets.xcassets */; };
@@ -82,6 +90,13 @@
 		29930CAF2A5C208D007F82C6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		299CFDEF2A65853400FABC2A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		299EFA302A682A9D0085C3F1 /* IndexMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexMeter.swift; sourceTree = "<group>"; };
+		29A941E92A6C17E2005B4272 /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
+		29A941EB2A6C180C005B4272 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		29A941F22A6C1B29005B4272 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		29A941F62A6C1BC9005B4272 /* DataInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInjection.swift; sourceTree = "<group>"; };
+		29A941F82A6C1EAB005B4272 /* CityFirestoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityFirestoreDataSource.swift; sourceTree = "<group>"; };
+		29A941FB2A6C2013005B4272 /* GetCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCities.swift; sourceTree = "<group>"; };
 		29B02BBF2A5204F3008652B5 /* WeatherOracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherOracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherOracleApp.swift; sourceTree = "<group>"; };
 		29B02BC42A5204F3008652B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +115,7 @@
 			files = (
 				292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */,
 				291A10732A5E065300F11549 /* BottomSheet in Frameworks */,
+				29A941F12A6C18F5005B4272 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +138,7 @@
 				29930CAB2A5C2074007F82C6 /* ForecastModel.swift */,
 				29930CAD2A5C2085007F82C6 /* ForecastPeriodModel.swift */,
 				29930CAF2A5C208D007F82C6 /* WeatherModel.swift */,
+				29A941EB2A6C180C005B4272 /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,6 +167,7 @@
 				290627F72A64C80800133E63 /* Pages */,
 				295D2EF92A58897A005F7EF0 /* Views */,
 				295D2EFA2A58899B005F7EF0 /* Helpers */,
+				29A941F42A6C1B2C005B4272 /* View Models */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -177,7 +195,9 @@
 		29930CAA2A5C205E007F82C6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				29A941FA2A6C1FFB005B4272 /* Use Cases */,
 				2931D4212A5C96B0008F1EBC /* Models */,
+				29A941E82A6C17D1005B4272 /* Data Sources */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -194,11 +214,60 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		29A941E72A6C173F005B4272 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */,
+				29A941F82A6C1EAB005B4272 /* CityFirestoreDataSource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		29A941E82A6C17D1005B4272 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29A941E92A6C17E2005B4272 /* CityDataSource.swift */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		29A941EF2A6C18F5005B4272 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29A941F42A6C1B2C005B4272 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				29A941F22A6C1B29005B4272 /* SearchViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		29A941F52A6C1BB2005B4272 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				29A941F62A6C1BC9005B4272 /* DataInjection.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		29A941FA2A6C1FFB005B4272 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				29A941FB2A6C2013005B4272 /* GetCities.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
 		29B02BB62A5204F3008652B5 = {
 			isa = PBXGroup;
 			children = (
 				29B02BC12A5204F3008652B5 /* WeatherOracle */,
 				29B02BC02A5204F3008652B5 /* Products */,
+				29A941EF2A6C18F5005B4272 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */,
+				29A941F52A6C1BB2005B4272 /* Core */,
+				29A941E72A6C173F005B4272 /* Data */,
 				29930CAA2A5C205E007F82C6 /* Domain */,
 				295D2EF82A58892E005F7EF0 /* Presentations */,
 				298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */,
@@ -323,6 +394,7 @@
 			packageProductDependencies = (
 				291A10722A5E065300F11549 /* BottomSheet */,
 				292B16B72A641EAE00DD0814 /* FirebaseDatabase */,
+				29A941F02A6C18F5005B4272 /* FirebaseFirestore */,
 			);
 			productName = WeatherOracle;
 			productReference = 29B02BBF2A5204F3008652B5 /* WeatherOracle.app */;
@@ -386,6 +458,7 @@
 				29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */,
 				29930CAE2A5C2085007F82C6 /* ForecastPeriodModel.swift in Sources */,
 				295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */,
+				29A941F92A6C1EAB005B4272 /* CityFirestoreDataSource.swift in Sources */,
 				29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */,
 				29105BAD2A67EDD300F5EA67 /* TextHelpers.swift in Sources */,
 				29BA6ADE2A5B76A500E3C514 /* Arc.swift in Sources */,
@@ -396,18 +469,21 @@
 				29105BAB2A67EBB600F5EA67 /* RainfallCard.swift in Sources */,
 				291A10752A5E0AB900F11549 /* Blur.swift in Sources */,
 				299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */,
+				29A941EE2A6C18AE005B4272 /* FirestoreManager.swift in Sources */,
 				29105BA72A67E3CF00F5EA67 /* HumidityCard.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
+				29A941F72A6C1BC9005B4272 /* DataInjection.swift in Sources */,
 				290627F62A64AF1B00133E63 /* SunPath.swift in Sources */,
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
 				2953982B2A696BFA00850478 /* Glow.swift in Sources */,
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
 				295398252A6954C200850478 /* WindCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,
+				29A941F32A6C1B29005B4272 /* SearchViewModel.swift in Sources */,
 				29105BA92A67E53800F5EA67 /* VisibilityCard.swift in Sources */,
 				2953982E2A69A14600850478 /* Compass.swift in Sources */,
 				291C11462A5CA7A600B06919 /* SearchView.swift in Sources */,
@@ -417,8 +493,11 @@
 				29105BA42A67DD7B00F5EA67 /* FeelsLikeCard.swift in Sources */,
 				29930CAC2A5C2074007F82C6 /* ForecastModel.swift in Sources */,
 				295398272A6954CC00850478 /* PressureCard.swift in Sources */,
+				29A941FC2A6C2013005B4272 /* GetCities.swift in Sources */,
 				298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */,
 				29B02BC32A5204F3008652B5 /* WeatherOracleApp.swift in Sources */,
+				29A941EC2A6C180C005B4272 /* City.swift in Sources */,
+				29A941EA2A6C17E2005B4272 /* CityDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +728,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 292B16B62A641EAE00DD0814 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		29A941F02A6C18F5005B4272 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 292B16B62A641EAE00DD0814 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
