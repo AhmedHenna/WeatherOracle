@@ -13,17 +13,17 @@ class SearchViewModel: ObservableObject {
     @Published var weatherData : Weather? = nil
     private let getCities = GetCities()
     private let getWeatherData = GetWeatherData()
+
+    
+    let locationManager = LocationManager { latitude, longitude in
+        print(latitude, longitude)
+    }
     
     init() {
         fetchCities()
-        
-        LocationManager.shared.requestLocationPermission()
-        LocationManager.shared.startUpdatingLocation()
-        
-        if let currentLocation = LocationManager.shared.currentLocation {
-            fetchWeatherData(lat: currentLocation.coordinate.latitude, lon: currentLocation.coordinate.longitude)
-        }
+        locationManager.requestLocationUpdates()
     }
+   
     
     private func fetchCities(){
         getCities.execute { [weak self] cities in
@@ -38,6 +38,7 @@ class SearchViewModel: ObservableObject {
             switch result {
             case .success(let weatherResponse):
                 self.weatherData = weatherResponse
+                print("Latitude: \(String(describing: self.weatherData?.daily.description)))")
             case .failure(let error):
                 print("Error fetching weather data: \(error.localizedDescription)")
             }

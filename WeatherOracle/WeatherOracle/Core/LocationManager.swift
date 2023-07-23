@@ -6,40 +6,51 @@
 //
 
 import CoreLocation
+import Combine
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
-    static let shared = LocationManager()
-    
-    private let locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
-    
-    private override init() {
+class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+    @Published var coordinates: (lat: Double, lon: Double) = (0, 0)
+    private var locationUpdateHandler: ((Double, Double) -> Void)?
+
+    init(locationUpdateHandler: @escaping (Double, Double) -> Void) {
         super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationUpdateHandler = locationUpdateHandler
     }
-    
-    func requestLocationPermission() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-    
-    func startUpdatingLocation() {
-        locationManager.startUpdatingLocation()
-    }
-    
-    func stopUpdatingLocation() {
-        locationManager.stopUpdatingLocation()
-    }
-    
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            currentLocation = location
+
+    private lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        return manager
+    }()
+
+    func requestLocationUpdates() {
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        default:
+            print("Default")
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to get user's location: \(error.localizedDescription)")
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            manager.startUpdatingLocation()
+        default:
+            manager.stopUpdatingLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        coordinates = (location.coordinate.latitude, location.coordinate.longitude)
+        locationUpdateHandler?(location.coordinate.latitude, location.coordinate.longitude)
+    }
+
+    func getCoordinates() -> (lat: Double, lon: Double) {
+        return coordinates
     }
 }

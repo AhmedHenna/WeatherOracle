@@ -7,29 +7,31 @@
 
 import Foundation
 import CoreLocation
+import Combine
+
 
 class HomeViewModel : ObservableObject{
     @Published var weatherData : Weather? = nil
     private let getWeatherData = GetWeatherData()
+
+    
+    let locationManager = LocationManager { latitude, longitude in
+        print(latitude, longitude)
+    }
     
     init() {
-        LocationManager.shared.requestLocationPermission()
-        LocationManager.shared.startUpdatingLocation()
-        
-        let currentLocation = LocationManager.shared.currentLocation
-        print("Current Location: \(String(describing: currentLocation?.coordinate.latitude)), \(String(describing: currentLocation?.coordinate.longitude))")
-        fetchWeatherData(lat: currentLocation?.coordinate.latitude ?? 4, lon: currentLocation?.coordinate.longitude ?? 5)
-}
-
-private func fetchWeatherData(lat: Double, lon: Double) {
-    getWeatherData.execute(lat: lat, lon: lon) { result in
-        switch result {
-        case .success(let weatherResponse):
-            self.weatherData = weatherResponse
-            print("Latitude: \(String(describing: self.weatherData?.daily.description)))")
-        case .failure(let error):
-            print("Error fetching weather data: \(error.localizedDescription)")
+        locationManager.requestLocationUpdates()
+    }
+    
+    private func fetchWeatherData(lat: Double, lon: Double) {
+        getWeatherData.execute(lat: lat, lon: lon) { result in
+            switch result {
+            case .success(let weatherResponse):
+                self.weatherData = weatherResponse
+                print("Latitude: \(String(describing: self.weatherData?.daily.description)))")
+            case .failure(let error):
+                print("Error fetching weather data: \(error.localizedDescription)")
+            }
         }
     }
-}
 }
