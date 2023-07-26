@@ -49,8 +49,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         coordinates = (location.coordinate.latitude, location.coordinate.longitude)
         locationUpdateHandler?(location.coordinate.latitude, location.coordinate.longitude)
     }
-
-    func getCoordinates() -> (lat: Double, lon: Double) {
-        return coordinates
-    }
 }

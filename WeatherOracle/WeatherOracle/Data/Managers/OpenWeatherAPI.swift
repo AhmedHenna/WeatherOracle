@@ -12,7 +12,7 @@ class OpenWeatherAPI {
 
     func fetchWeatherData(lat: Double, lon: Double, completion: @escaping (Result<Weather, Error>) -> Void) {
         let baseURL = "https://api.openweathermap.org/data/3.0/onecall"
-        let urlString = "\(baseURL)?lat=\(lat)&lon=\(lon)&exclude=alerts&appid=\(apiKey)"
+        let urlString = "\(baseURL)?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&units=metric&appid=\(apiKey)"
 
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
@@ -33,6 +33,7 @@ class OpenWeatherAPI {
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .secondsSince1970
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let weatherResponse = try decoder.decode(Weather.self, from: data)
                 completion(.success(weatherResponse))
             } catch {
