@@ -36,14 +36,16 @@ class SearchViewModel: ObservableObject {
     }
     
     private func fetchWeatherData(lat: Double, lon: Double) {
-        getWeatherData.execute(lat: lat, lon: lon) { result in
-            switch result {
-            case .success(let weatherResponse):
-                self.weatherData = weatherResponse
-                print("Latitude: \(String(describing: self.weatherData?.current?.temp))")
-            case .failure(let error):
-                print("Error fetching weather data: \(error.localizedDescription)")
-            }
-        }
-    }
+         getWeatherData.execute(lat: lat, lon: lon) { [weak self] result in
+             switch result {
+             case .success(let weatherResponse):
+                 DispatchQueue.main.async {
+                     self?.weatherData = weatherResponse
+                     print("Latitude: \(String(describing: self?.weatherData?.current?.temp))")
+                 }
+             case .failure(let error):
+                 print("Error fetching weather data: \(error.localizedDescription)")
+             }
+         }
+     }
 }
