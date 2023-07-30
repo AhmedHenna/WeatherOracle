@@ -45,30 +45,37 @@ struct HomeView: View {
     }
     
     var currentWeather : some View{
-        VStack(spacing: -10 * (1 - bottomSheetTranslationChanged)) {
-            Text("Cairo")
+        VStack(alignment: .center, spacing: -10 * (1 - bottomSheetTranslationChanged)) {
+            let cityName = viewModel.weatherData?.timezone
+            Text(cityName?.components(separatedBy: "/").last ?? "Cairo")
                 .font(.largeTitle)
                 .foregroundColor(Color("Text Primary"))
             
-            VStack {
+            VStack{
                 let layout = hasDragged ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+                let currentTemp = String(Int(round(viewModel.weatherData?.current?.temp ?? 27)))
+                let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "Cloudy").capitalized
                 
                 layout{
                     HStack {
-                        Text("27°")
+                        Text(currentTemp)
                             .fontWeight(hasDragged ? .semibold : .thin)
                             .font(.system(size: (96 - (bottomSheetTranslationChanged * (96 - 20)))))
                         Text(" | ")
                             .font(.title3.weight(.semibold))
                             .foregroundColor(Color("Text Secondary").opacity(bottomSheetTranslationChanged))
                     }
-                    .offset(x: !hasDragged ? 25 : 0)
+                    .offset(x: !hasDragged ? 10 : 0)
                     
-                    Text("Mostly Clear")
+                    Text(weatherDescription)
                         .font(.title3.weight(.semibold))
                         .foregroundColor(Color("Text Secondary"))
                 }
-                Text("H:36°   L:26°")
+                
+                let max = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.max ?? 27)))
+                let min = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.min ?? 14)))
+                
+                Text("H:\(max)°   L:\(min)°")
                     .font(.title3.weight(.semibold))
                     .opacity(1 - bottomSheetTranslationChanged)
             }
