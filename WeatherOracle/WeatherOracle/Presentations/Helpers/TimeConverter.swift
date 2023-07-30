@@ -17,4 +17,8 @@ class TimeConverter {
         let minutes = totalMinutes % 60
         return (hours, minutes)
     }
+    
+    static func convertEpochToDate(epoch: TimeInterval) -> Date {
+        return Date(timeIntervalSince1970: epoch)
+    }
 }

@@ -21,17 +21,14 @@ struct WidgetCardContainer<Content: View>: View {
                 iconAndTitle
                 content()
             }
-            .padding(.vertical, 15)
-            .padding(.horizontal, 15)
+            .padding(15) // Use positive padding values
         }
         .frame(width: width, height: height)
-        
-        
     }
     
     var shape: some View {
         RoundedRectangle(cornerRadius: 30)
-            .fill(.clear)
+            .fill(Color.clear)
             .frame(width: width, height: height)
             .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 4)
             .strokeStyle(cornerRadius: 30)
@@ -46,7 +43,6 @@ struct WidgetCardContainer<Content: View>: View {
         .font(.caption)
     }
 }
-
 
 struct WidgetCardContainer_Previews: PreviewProvider {
     static var previews: some View {

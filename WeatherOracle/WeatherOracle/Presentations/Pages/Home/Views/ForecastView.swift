@@ -11,6 +11,7 @@ struct ForecastView: View {
     var bottomSheetTranslationChanged: CGFloat = 1
     @State private var selection = 0
     @Binding var hasDragged: Bool
+    @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
         ScrollView {
@@ -37,12 +38,12 @@ struct ForecastView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 if selection == 0 {
-                    ForEach(Forecast.hourly) { forecast in
+                    ForEach(viewModel.hourlyData) { forecast in
                         ForecastCard(forecast: forecast, forecastPeriod: .hourly)
                     }
                     .transition(.offset(x: -430))
                 } else {
-                    ForEach(Forecast.daily) { forecast in
+                    ForEach(viewModel.dailyData) { forecast in
                         ForecastCard(forecast: forecast, forecastPeriod: .daily)
                     }
                     .transition(.offset(x: 430))

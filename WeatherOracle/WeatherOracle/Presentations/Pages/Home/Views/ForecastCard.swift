@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ForecastCard: View {
-    var forecast: Forecast
+    var forecast: WeatherForcast
     var forecastPeriod: ForecastPeriod
     var isActive: Bool {
         if forecastPeriod == ForecastPeriod.hourly {
@@ -52,10 +52,10 @@ struct ForecastCard: View {
             VStack(spacing: -20) {
                 Image(forecast.icon).resizable().frame(width: 80, height: 80)
                 
-                Text(forecast.probability, format: .percent)
+                Text(forecast.rainPercentage, format: .percent)
                     .font(.footnote.weight(.semibold))
                     .foregroundColor(Color("Text Highlights"))
-                    .opacity(forecast.probability > 0 ? 1 : 0)
+                    .opacity(forecast.rainPercentage > 0 ? 1 : 0)
                     .offset(x: 3)
             }
             .frame(height: 40)
@@ -63,6 +63,7 @@ struct ForecastCard: View {
             
             Text("\(forecast.temperature)°")
                 .font(.title3)
+                .offset(x:3)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 16)
@@ -73,16 +74,10 @@ struct ForecastCard: View {
 struct ForecastCard_Previews: PreviewProvider {
     static var previews: some View {
         ForecastCard(
-            forecast: Forecast(
-                date: Date(),
-                weather: .sunny,
-                probability: 60,
-                temperature: 27,
-                high: 30,
-                low: 20,
-                location: "Sample Location",
-                icon: "Sun"
-            ),
+            forecast: WeatherForcast(date: TimeConverter.convertEpochToDate(epoch: TimeInterval(1690394400)),
+                                temperature: 27,
+                                rainPercentage: 0.1,
+                                icon: "Sun"),
             forecastPeriod: .daily
         )
         .preferredColorScheme(.dark)
