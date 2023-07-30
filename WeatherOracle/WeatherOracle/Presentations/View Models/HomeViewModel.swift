@@ -42,35 +42,35 @@ class HomeViewModel : ObservableObject{
         }
     }
     
-    func mapHourlyData(){
+    private func mapHourlyData(){
         guard let hourlyArray = weatherData?.hourly else {
             print("Hourly data not available")
             return
         }
         
-        for item in hourlyArray {
+        for item in hourlyArray.prefix(24) {
             let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
             let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp)
             hourlyData.append(WeatherForcast(date: date,
-                                        temperature: Int(round(item.temp ?? 0)),
-                                        rainPercentage: item.pop ?? 0,
-                                        icon: item.weather?.description ?? ""))
+                                             temperature: Int(round(item.temp ?? 0)),
+                                             rainPercentage: item.pop ?? 0,
+                                             icon: item.weather?.first?.description ?? ""))
         }
     }
     
-    func mapDailyData(){
+    private func mapDailyData(){
         guard let dailyArray = weatherData?.daily else {
             print("Daily data not available")
             return
         }
         
-        for item in dailyArray {
+        for item in dailyArray.prefix(7) {
             let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
             let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp)
             dailyData.append(WeatherForcast(date: date,
-                                        temperature: Int(round(item.temp?.morn ?? 0)),
-                                        rainPercentage: item.pop ?? 0,
-                                        icon: item.weather?.description ?? ""))
+                                            temperature: Int(round(item.temp?.morn ?? 0)),
+                                            rainPercentage: item.pop ?? 0,
+                                            icon: item.weather?.description ?? ""))
         }
     }
 }
