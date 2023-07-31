@@ -54,7 +54,7 @@ class HomeViewModel : ObservableObject{
             hourlyData.append(WeatherForcast(date: date,
                                              temperature: Int(round(item.temp ?? 0)),
                                              rainPercentage: item.pop ?? 0,
-                                             icon: item.weather?.first?.description ?? ""))
+                                             weatherID: item.weather?.first?.id ?? 800))
         }
     }
     
@@ -70,7 +70,7 @@ class HomeViewModel : ObservableObject{
             dailyData.append(WeatherForcast(date: date,
                                             temperature: Int(round(item.temp?.morn ?? 0)),
                                             rainPercentage: item.pop ?? 0,
-                                            icon: item.weather?.description ?? ""))
+                                            weatherID: item.weather?.first?.id ?? 800))
         }
     }
 }

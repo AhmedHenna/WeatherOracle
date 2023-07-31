@@ -24,7 +24,7 @@ struct WeatherForcast: Identifiable {
     var date: Date
     var temperature: Int
     var rainPercentage: Double
-    var icon: String
+    var weatherID: Int
 }
 
 extension Forecast {

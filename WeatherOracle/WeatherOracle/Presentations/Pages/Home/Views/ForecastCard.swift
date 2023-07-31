@@ -50,7 +50,8 @@ struct ForecastCard: View {
                 .font(.subheadline.weight(.semibold))
             
             VStack(spacing: -20) {
-                Image(forecast.icon).resizable().frame(width: 80, height: 80)
+                Image(mapToIcon(id: forecast.weatherID, isMorning: true))
+                    .resizable().frame(width: 80, height: 80)
                 
                 Text(forecast.rainPercentage, format: .percent)
                     .font(.footnote.weight(.semibold))
@@ -74,10 +75,11 @@ struct ForecastCard: View {
 struct ForecastCard_Previews: PreviewProvider {
     static var previews: some View {
         ForecastCard(
-            forecast: WeatherForcast(date: TimeConverter.convertEpochToDate(epoch: TimeInterval(1690394400)),
-                                temperature: 27,
-                                rainPercentage: 0.1,
-                                icon: "Sun"),
+            forecast: WeatherForcast(date: TimeConverter.convertEpochToDate(
+                epoch: TimeInterval(1690394400)),
+                                     temperature: 27,
+                                     rainPercentage: 0.1,
+                                     weatherID: 800),
             forecastPeriod: .daily
         )
         .preferredColorScheme(.dark)

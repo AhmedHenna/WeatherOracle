@@ -21,4 +21,40 @@ class TimeConverter {
     static func convertEpochToDate(epoch: TimeInterval) -> Date {
         return Date(timeIntervalSince1970: epoch)
     }
+    
+    
+    static func getTimeOfDay(currentTime: Int, sunset: Int) -> String {
+        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime))
+        let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset))
+        let afternoon = "12:00:00"
+        
+        if currentTime < afternoon{
+            print("Morning")
+            
+        }else if currentTime > afternoon && currentTime < sunset{
+            print("Afternoon")
+            
+        }else if currentTime > sunset{
+            print("Night")
+            
+        }
+        
+        return "Morning"
+    }
+    
+    static func convertEpochToTime(epoch: TimeInterval) -> String {
+        let date = Date(timeIntervalSince1970: epoch)
+        let calendar = Calendar.current
+        let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: date)
+        
+        guard let hour = timeComponents.hour,
+              let minute = timeComponents.minute,
+              let second = timeComponents.second else {
+            return "Invalid epoch"
+        }
+        
+        let formattedTime = String(format: "%02d:%02d:%02d", hour, minute, second)
+        
+        return formattedTime
+    }
 }
