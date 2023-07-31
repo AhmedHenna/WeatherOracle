@@ -62,6 +62,7 @@
 		29C3B7752A6C819900951674 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7742A6C819900951674 /* OpenWeatherAPI.swift */; };
 		29C3B7792A6C988300951674 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7782A6C988300951674 /* LocationManager.swift */; };
 		29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */; };
+		29DB76A92A771AB0007A4373 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB76A82A771AB0007A4373 /* Mapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		29C3B7742A6C819900951674 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		29C3B7782A6C988300951674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMovement.swift; sourceTree = "<group>"; };
+		29DB76A82A771AB0007A4373 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				299EFA352A684E7B0085C3F1 /* Extensions */,
 				299CFDEF2A65853400FABC2A /* TimeConverter.swift */,
 				29105BAC2A67EDD300F5EA67 /* TextHelpers.swift */,
+				29DB76A82A771AB0007A4373 /* Mapping.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,
 				293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */,
+				29DB76A92A771AB0007A4373 /* Mapping.swift in Sources */,
 				295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */,
 				291C11442A5CA76600B06919 /* TabBar.swift in Sources */,
 				29A941F72A6C1BC9005B4272 /* DataInjection.swift in Sources */,
