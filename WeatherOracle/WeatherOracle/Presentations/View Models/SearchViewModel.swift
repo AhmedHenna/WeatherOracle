@@ -16,7 +16,6 @@ class SearchViewModel: ObservableObject {
     
     private lazy var locationManager: LocationManager = {
         LocationManager { [weak self] latitude, longitude in
-            print(latitude, longitude)
             self?.fetchWeatherData(lat: latitude, lon: longitude)
         }
     }()
@@ -41,7 +40,6 @@ class SearchViewModel: ObservableObject {
              case .success(let weatherResponse):
                  DispatchQueue.main.async {
                      self?.weatherData = weatherResponse
-                     print("Latitude: \(String(describing: self?.weatherData?.current?.temp))")
                  }
              case .failure(let error):
                  print("Error fetching weather data: \(error.localizedDescription)")

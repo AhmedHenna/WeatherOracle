@@ -17,7 +17,7 @@ struct SearchView: View {
                 weatherCards
             }
             .padding(.vertical, 8)
-            .background(Color.linearBackgroundMorning)
+            .background(mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1))
             .searchable(text: $text, placement:
                     .navigationBarDrawer(displayMode: .always), prompt: Text("Cairo, New York, Dubai")){
                         ForEach(viewModel.cities){ suggestion in

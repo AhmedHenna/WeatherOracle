@@ -6,10 +6,35 @@
 //
 
 import Foundation
+import SwiftUI
 
-func mapToIcon(id: Int, isMorning: String) -> String{
+func mapTimeToColor(time: Int) -> LinearGradient{
+    let time = TimeConverter.convertEpochToTime(epoch: TimeInterval(time))
     
-    if isMorning == "Morning" || isMorning == "Afternoon" {
+    if time == "Morning"{
+        return Color.linearBackgroundMorning
+    }else if time == "Afternoon"{
+        return Color.linearBackgroundAfternoon
+    }else {
+        return Color.linearBackgroundNight
+    }
+}
+
+func mapTimeToImage(time: Int) -> String{
+    let time = TimeConverter.convertEpochToTime(epoch: TimeInterval(time))
+    
+    if time == "Morning"{
+        return "Home Morning"
+    }else if time == "Afternoon"{
+        return "Home Afternoon"
+    }else {
+        return "Home Night"
+    }
+}
+
+func mapToIcon(id: Int, time: String) -> String{
+    
+    if time == "Morning" || time == "Afternoon" {
         switch id{
             //Thunderstorm
         case 210, 211, 212, 221:
@@ -111,5 +136,5 @@ func mapToIcon(id: Int, isMorning: String) -> String{
             return "Moon"
         }
     }
-    return "Sun"
 }
+

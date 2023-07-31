@@ -51,7 +51,7 @@ struct ForecastCard: View {
                 .font(.subheadline.weight(.semibold))
             
             VStack(spacing: -20) {
-                Image(mapToIcon(id: forecast.weatherID, isMorning: TimeConverter.getTimeOfDay(currentTime: viewModel.weatherData?.current?.dt ?? 1, sunset: viewModel.weatherData?.current?.sunset ?? 1)))
+                Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: viewModel.weatherData?.current?.dt ?? 1, sunset: viewModel.weatherData?.current?.sunset ?? 1)))
                     .resizable().frame(width: 80, height: 80)
                 
                 Text(forecast.rainPercentage, format: .percent)

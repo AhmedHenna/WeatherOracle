@@ -33,10 +33,10 @@ struct HomeView: View {
             let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
             let imageOffset = screenHeight + 36
             Group{
-                Color.linearBackgroundMorning
+                mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1)
                     .ignoresSafeArea()
                 
-                Image("Home Morning")
+                Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1))
                     .frame(maxHeight: .infinity, alignment: .top)
                     .padding(.top, 324)
                     .offset(y: -bottomSheetTranslationChanged * imageOffset)
