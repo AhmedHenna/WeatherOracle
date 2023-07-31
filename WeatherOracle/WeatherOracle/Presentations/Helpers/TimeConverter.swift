@@ -29,14 +29,13 @@ class TimeConverter {
         let afternoon = "12:00:00"
         
         if currentTime < afternoon{
-            print("Morning")
+            return "Morning"
             
         }else if currentTime > afternoon && currentTime < sunset{
-            print("Afternoon")
+            return "Afternoon"
             
         }else if currentTime > sunset{
-            print("Night")
-            
+            return "Night"
         }
         
         return "Morning"

@@ -7,9 +7,9 @@
 
 import Foundation
 
-func mapToIcon(id: Int, isMorning: Bool) -> String{
+func mapToIcon(id: Int, isMorning: String) -> String{
     
-    if isMorning{
+    if isMorning == "Morning" || isMorning == "Afternoon" {
         switch id{
             //Thunderstorm
         case 210, 211, 212, 221:
@@ -56,11 +56,11 @@ func mapToIcon(id: Int, isMorning: Bool) -> String{
             return "Sunny Cloud"
         case 804:
             return "Cloudy Sunny Clouds"
-      
+            
         default:
             return "Sun"
         }
-    }else if !isMorning{
+    } else {
         switch id{
             //Thunderstorm
         case 210, 211, 212, 221:
