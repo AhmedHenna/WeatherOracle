@@ -33,12 +33,14 @@ struct HomeView: View {
             let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
             let imageOffset = screenHeight + 36
             Group{
-                mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1)
+                mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1,
+                               sunset: viewModel.weatherData?.current?.sunset ?? 1)
                     .ignoresSafeArea()
                 
-                Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1))
+                Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1,
+                                     sunset: viewModel.weatherData?.current?.sunset ?? 1))
                     .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(.top, 324)
+                    .padding(.top, 270)
                     .offset(y: -bottomSheetTranslationChanged * imageOffset)
             }
         }
