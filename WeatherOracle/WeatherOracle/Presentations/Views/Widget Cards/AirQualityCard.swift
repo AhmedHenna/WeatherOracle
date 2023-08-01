@@ -14,7 +14,7 @@ struct AirQualityCard: View {
     
     
     var body: some View {
-        WidgetCardContainer(icon: "aqi.medium", title: "AIR QUALITY", width: .infinity, height: 160) {
+        WidgetCardContainer(icon: "aqi.medium", title: "AIR QUALITY", width: 350, height: 160) {
             content
         }
     }

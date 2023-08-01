@@ -50,14 +50,14 @@ struct HomeView: View {
     var currentWeather : some View{
         VStack(alignment: .center, spacing: -10 * (1 - bottomSheetTranslationChanged)) {
             let cityName = viewModel.weatherData?.timezone
-            Text(cityName?.components(separatedBy: "/").last ?? "Cairo")
+            Text(cityName?.components(separatedBy: "/").last ?? "")
                 .font(.largeTitle)
                 .foregroundColor(Color("Text Primary"))
             
             VStack{
                 let layout = hasDragged ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
-                let currentTemp = String(Int(round(viewModel.weatherData?.current?.temp ?? 27)))
-                let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "Cloudy").capitalized
+                let currentTemp = String(Int(round(viewModel.weatherData?.current?.temp ?? 0)))
+                let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "").capitalized
                 
                 layout{
                     HStack {
@@ -75,8 +75,8 @@ struct HomeView: View {
                         .foregroundColor(Color("Text Secondary"))
                 }
                 
-                let max = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.max ?? 27)))
-                let min = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.min ?? 14)))
+                let max = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.max ?? 0)))
+                let min = String(Int(round(viewModel.weatherData?.daily?.first?.temp?.min ?? 0)))
                 
                 Text("H:\(max)°   L:\(min)°")
                     .font(.title3.weight(.semibold))
