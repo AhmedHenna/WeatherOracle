@@ -14,6 +14,7 @@ struct HomeView: View {
     @State var bottomSheetPosition: BottomSheetPosition = .middle
     @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
     @State var hasDragged: Bool = false
+    @State private var tabBarOffset: CGFloat = 0
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
@@ -112,11 +113,33 @@ struct HomeView: View {
     }
     
     var tabBarArea : some View {
-        TabBar(action: {
-            bottomSheetPosition = .top
-        })
-        .offset(y: bottomSheetTranslationChanged * 115)
-    }
+            GeometryReader { geometry in
+                let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
+                withAnimation(.easeOut){
+                    TabBar(action: {
+                        bottomSheetPosition = .top
+                    })
+                    .offset(y: calculateTabBarOffset(screenHeight: screenHeight))
+                }
+            }
+            .onChange(of: bottomSheetPosition, perform: { newValue in
+                updateTabBarOffset()
+            })
+        }
+        
+        private func calculateTabBarOffset(screenHeight: CGFloat) -> CGFloat {
+            let maxOffset: CGFloat = 115
+            let newOffset = bottomSheetTranslationChanged * screenHeight
+            tabBarOffset = min(newOffset, maxOffset)
+            return tabBarOffset
+        }
+        
+        private func updateTabBarOffset() {
+            withAnimation {
+                tabBarOffset = 0
+            }
+        }
+    
     
     var bottomSheetTranslationChanged: CGFloat {
         (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) / (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)

@@ -12,7 +12,7 @@ struct TabBar: View {
     
     var body: some View {
         ZStack {
-            arcShape
+            //arcShape
             buttons
         }
         .frame(maxHeight: .infinity, alignment: .bottom)
@@ -30,8 +30,10 @@ struct TabBar: View {
             Button {
                 action()
             } label: {
-                Image(systemName: "mappin.and.ellipse")
+                Image(systemName: "rectangle.expand.vertical")
                     .frame(width: 44, height: 44)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .strokeStyle(cornerRadius: 20)
             }
             
             Spacer()
@@ -41,6 +43,8 @@ struct TabBar: View {
             } label: {
                 Image(systemName: "list.bullet")
                     .frame(width: 44, height: 44)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .strokeStyle(cornerRadius: 20)
             }
         }
         .font(.title2)

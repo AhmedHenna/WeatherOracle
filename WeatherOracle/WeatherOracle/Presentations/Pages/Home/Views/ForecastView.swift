@@ -51,7 +51,7 @@ struct ForecastView: View {
             }
             .padding(.vertical, 20)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 5)
     }
     
     var bottomSheetSeperator : some View{
@@ -77,9 +77,7 @@ struct ForecastView: View {
                 FeelsLikeCard(feelsLikeTemp: 55, actualTemp: 80)
                 UVIndexCard(uviValue:  5  , startTime: 9, endTime: 6)
                 HumidityCard(humidity: 83, dewPoint: 19)
-
                 WindCard(speed: 9.7, direction: 240)
-
                 PressureCard(pressure: 1000)
                 RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
                 VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
