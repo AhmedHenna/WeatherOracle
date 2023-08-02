@@ -8,14 +8,17 @@
 import Foundation
 
 class TimeConverter {
-    func timeToMinutes(hours: Int, minutes: Int) -> Int {
-        return hours * 60 + minutes
-    }
-    
-    func minutesToTime(totalMinutes: Int) -> (hours: Int, minutes: Int) {
-        let hours = totalMinutes / 60
-        let minutes = totalMinutes % 60
-        return (hours, minutes)
+    func timeToMinutes(epoch: Int) -> Int {
+        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(epoch), withSeconds: true)
+        
+        let components = currentTime.split(separator: ":")
+          guard components.count == 3,
+                let hour = Int(components[0]),
+                let minute = Int(components[1]) else {
+              return 0
+          }
+
+        return hour * 60 + minute
     }
     
     static func convertEpochToDate(epoch: TimeInterval) -> Date {
@@ -24,8 +27,8 @@ class TimeConverter {
     
     
     static func getTimeOfDay(currentTime: Int, sunset: Int) -> String {
-        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime))
-        let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset))
+        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime), withSeconds: true)
+        let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset), withSeconds: true)
         let afternoon = "12:00:00"
         
         if currentTime < afternoon{
@@ -41,19 +44,28 @@ class TimeConverter {
         return "Morning"
     }
     
-    static func convertEpochToTime(epoch: TimeInterval) -> String {
+    static func convertEpochToTime(epoch: TimeInterval, withSeconds: Bool) -> String {
         let date = Date(timeIntervalSince1970: epoch)
         let calendar = Calendar.current
         let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: date)
         
-        guard let hour = timeComponents.hour,
+        guard var hour = timeComponents.hour,
               let minute = timeComponents.minute,
               let second = timeComponents.second else {
             return "Invalid epoch"
         }
         
-        let formattedTime = String(format: "%02d:%02d:%02d", hour, minute, second)
-        
-        return formattedTime
+        if withSeconds {
+            let formattedTime = String(format: "%2d:%02d:%02d", hour, minute, second)
+            return formattedTime
+        }else{
+            
+            if hour >= 12{
+                hour = hour - 12
+            }
+            
+            let formattedTime = String(format: "%2d:%02d", hour, minute)
+            return formattedTime
+        }
     }
 }

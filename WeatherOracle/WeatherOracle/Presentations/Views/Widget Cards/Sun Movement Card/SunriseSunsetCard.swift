@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct SunriseSunsetView: View {
+struct SunriseSunsetCard: View {
     @State var isSunrise : Bool
-    @State var currentTime : String
-    @State var sunTime : String
+    @State var sunRise: Int
+    @State var sunSet: Int
+    @State var currentTime: Int
     
     var body: some View {
         ZStack{
@@ -25,17 +26,22 @@ struct SunriseSunsetView: View {
     
     var content : some View {
         VStack (alignment: .leading, spacing: 10){
+            let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunRise), withSeconds: false)
             
-            Text(currentTime)
+            let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunSet), withSeconds: false)
+        
+            
+            Text(isSunrise ? "\(sunrise)" : "\(sunset)")
                 .font(.title)
             
-            SunMovement(hour: 21   ,min: 0 ,
+            SunMovement(time: currentTime,
                         strokeColor: Color.linearBackgroundMorning, sunColor: Color.yellow)
             .padding(.horizontal, -15)
             
             HStack (spacing: 2){
-                Text(isSunrise ? "Sunset:" : "Sunrise")
-                Text(sunTime)
+                Text(isSunrise ? "Sunset:" : "Sunrise:")
+                Text(isSunrise ? "\(sunset)" : "\(sunrise)")
+                Text(isSunrise ? "pm" : "am")
             }
             .font(.caption)
         }
@@ -45,6 +51,7 @@ struct SunriseSunsetView: View {
 
 struct SunriseSunsetView_Previews: PreviewProvider {
     static var previews: some View {
-        SunriseSunsetView(isSunrise: true, currentTime: "2:27 AM", sunTime: "9:14")
+        SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651)
+            .preferredColorScheme(.dark)
     }
 }

@@ -75,7 +75,7 @@ struct ForecastView: View {
     
     var widgets : some View{
         VStack{
-            AirQualityCard(aqiValue: 75, startTime: 9, endTime: 6)
+            AirQualityCard(aqiValue: 75)
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
                 FeelsLikeCard(feelsLikeTemp: 55, actualTemp: 80)
                 UVIndexCard(uviValue:  5  , startTime: 9, endTime: 6)
@@ -84,7 +84,7 @@ struct ForecastView: View {
                 PressureCard(pressure: 1000)
                 RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
                 VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
-                SunriseSunsetView(isSunrise: true, currentTime: "2:27 AM", sunTime: "9:14")
+                SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651)
 
             }
             

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AirQualityCard: View {
     @State var aqiValue : Int
-    @State var startTime: Int
-    @State var endTime: Int
     
     
     var body: some View {
@@ -46,6 +44,6 @@ struct AirQualityCard: View {
 
 struct AirQualityCard_Previews: PreviewProvider {
     static var previews: some View {
-        AirQualityCard(aqiValue: 75, startTime: 9, endTime: 6)
+        AirQualityCard(aqiValue: 75)
     }
 }

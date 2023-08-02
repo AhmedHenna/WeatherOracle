@@ -27,6 +27,31 @@ struct WeatherForcast: Identifiable {
     var weatherID: Int
 }
 
+struct WidgetForecast : Identifiable {
+    var id = UUID()
+    var aqi: Int
+    var feelsLike: Int
+    var actualTemp: Int
+    var uviValue: Int
+    var uviStart: Int
+    var uviEnd: Int
+    var humidity: Int
+    var dewPoint: Int
+    var windSpeed: Int
+    var windDirection: Int
+    var pressure: Int
+    var currentRainfall: Double
+    var expectedRainfall: Double
+    var visibility: Int
+    var visibilityDirection: Int
+    var isSunrise: Bool
+    var sunRise: Int
+    var sunSet: Int
+    var currentTime: Int
+    
+    
+}
+
 extension Forecast {
     static let hour: TimeInterval = 60 * 60
     static let day: TimeInterval = 60 * 60 * 24
