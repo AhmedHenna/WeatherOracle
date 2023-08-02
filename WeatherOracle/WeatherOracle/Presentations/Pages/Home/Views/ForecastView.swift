@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ForecastView: View {
     var bottomSheetTranslationChanged: CGFloat = 1
+    var hourlyData: [WeatherForcast]
+    var dailyData: [WeatherForcast]
+    var dayTime: Int
+    var sunset: Int
     @State private var selection = 0
     @Binding var hasDragged: Bool
-    @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
         ScrollView {
@@ -38,13 +41,13 @@ struct ForecastView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 if selection == 0 {
-                    ForEach(viewModel.hourlyData) { forecast in
-                        ForecastCard(forecast: forecast, forecastPeriod: .hourly)
+                    ForEach(hourlyData) { forecast in
+                        ForecastCard(dayTime: dayTime, sunset: sunset, forecast: forecast, forecastPeriod: .hourly)
                     }
                     .transition(.offset(x: -430))
                 } else {
-                    ForEach(viewModel.dailyData) { forecast in
-                        ForecastCard(forecast: forecast, forecastPeriod: .daily)
+                    ForEach(dailyData) { forecast in
+                        ForecastCard(dayTime: dayTime, sunset: sunset, forecast: forecast, forecastPeriod: .daily)
                     }
                     .transition(.offset(x: 430))
                 }
@@ -93,7 +96,11 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView(hasDragged: .constant(false))
+        ForecastView(hourlyData: [],
+                     dailyData: [],
+                     dayTime: 1,
+                     sunset: 1,
+                     hasDragged: .constant(false))
             .preferredColorScheme(.dark)
     }
 }

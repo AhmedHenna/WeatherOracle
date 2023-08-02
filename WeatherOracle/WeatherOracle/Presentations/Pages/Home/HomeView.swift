@@ -36,13 +36,13 @@ struct HomeView: View {
             Group{
                 mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1,
                                sunset: viewModel.weatherData?.current?.sunset ?? 1)
-                    .ignoresSafeArea()
+                .ignoresSafeArea()
                 
                 Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1,
                                      sunset: viewModel.weatherData?.current?.sunset ?? 1))
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(.top, 270)
-                    .offset(y: -bottomSheetTranslationChanged * imageOffset)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.top, 270)
+                .offset(y: -bottomSheetTranslationChanged * imageOffset)
             }
         }
     }
@@ -57,7 +57,8 @@ struct HomeView: View {
             VStack{
                 let layout = hasDragged ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
                 let currentTemp = String(Int(round(viewModel.weatherData?.current?.temp ?? 0)))
-                let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "").capitalized
+                let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "")
+                    .capitalized
                 
                 layout{
                     HStack {
@@ -95,8 +96,13 @@ struct HomeView: View {
             let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
             BottomSheetView(position: $bottomSheetPosition) {
             } content: {
-                ForecastView(bottomSheetTranslationChanged: bottomSheetTranslationChanged, hasDragged: $hasDragged)
-                    .foregroundColor(.white)
+                ForecastView(bottomSheetTranslationChanged: bottomSheetTranslationChanged,
+                             hourlyData: viewModel.hourlyData,
+                             dailyData: viewModel.dailyData,
+                             dayTime: viewModel.weatherData?.current?.dt ?? 1,
+                             sunset: viewModel.weatherData?.current?.sunset ?? 1,
+                             hasDragged: $hasDragged)
+                .foregroundColor(.white)
             }
             .onBottomSheetDrag { translation in
                 bottomSheetTranslation = translation / screenHeight
@@ -113,32 +119,32 @@ struct HomeView: View {
     }
     
     var tabBarArea : some View {
-            GeometryReader { geometry in
-                let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
-                withAnimation(.easeOut){
-                    TabBar(action: {
-                        bottomSheetPosition = .top
-                    })
-                    .offset(y: calculateTabBarOffset(screenHeight: screenHeight))
-                }
-            }
-            .onChange(of: bottomSheetPosition, perform: { newValue in
-                updateTabBarOffset()
-            })
-        }
-        
-        private func calculateTabBarOffset(screenHeight: CGFloat) -> CGFloat {
-            let maxOffset: CGFloat = 115
-            let newOffset = bottomSheetTranslationChanged * screenHeight
-            tabBarOffset = min(newOffset, maxOffset)
-            return tabBarOffset
-        }
-        
-        private func updateTabBarOffset() {
-            withAnimation {
-                tabBarOffset = 0
+        GeometryReader { geometry in
+            let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
+            withAnimation(.easeOut){
+                TabBar(action: {
+                    bottomSheetPosition = .top
+                })
+                .offset(y: calculateTabBarOffset(screenHeight: screenHeight))
             }
         }
+        .onChange(of: bottomSheetPosition, perform: { newValue in
+            updateTabBarOffset()
+        })
+    }
+    
+    private func calculateTabBarOffset(screenHeight: CGFloat) -> CGFloat {
+        let maxOffset: CGFloat = 115
+        let newOffset = bottomSheetTranslationChanged * screenHeight
+        tabBarOffset = min(newOffset, maxOffset)
+        return tabBarOffset
+    }
+    
+    private func updateTabBarOffset() {
+        withAnimation {
+            tabBarOffset = 0
+        }
+    }
     
     
     var bottomSheetTranslationChanged: CGFloat {
