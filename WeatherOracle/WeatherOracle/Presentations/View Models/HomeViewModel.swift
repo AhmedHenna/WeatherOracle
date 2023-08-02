@@ -14,6 +14,7 @@ class HomeViewModel : ObservableObject{
     @Published var weatherData : Weather? = nil
     @Published var hourlyData : [WeatherForcast] = []
     @Published var dailyData : [WeatherForcast] = []
+    @Published var widgetCardData : [WidgetForecast] = []
     private let getWeatherData = GetWeatherData()
     
     private lazy var locationManager: LocationManager = {
@@ -35,6 +36,7 @@ class HomeViewModel : ObservableObject{
                     self?.weatherData = weatherResponse
                     self?.mapHourlyData()
                     self?.mapDailyData()
+                    self?.mapWidgetCardData()
                 }
             case .failure(let error):
                 print("Error fetching weather data: \(error.localizedDescription)")
@@ -72,5 +74,60 @@ class HomeViewModel : ObservableObject{
                                             rainPercentage: item.pop ?? 0,
                                             weatherID: item.weather?.first?.id ?? 800))
         }
+    }
+    
+    private func mapWidgetCardData(){
+        guard let widgetData = weatherData else{
+            print("Widget data not available")
+            return
+        }
+        
+        guard let widgetDataHourly = weatherData?.hourly else{
+            print("Widget hourly not available")
+            return
+        }
+        
+        let currentTime = widgetData.current?.dt ?? 0
+        let sunsetTime = widgetData.current?.sunset ?? 0
+        let isSunrise = (TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime) == "Morning" ||
+                         TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime) == "Afternoon")
+        let visibilityValue = widgetData.current?.visibility ?? 0
+        let uviVales = getUVIValues(hourly: widgetDataHourly)
+        
+        widgetCardData.append(WidgetForecast(feelsLike: widgetData.current?.feelsLike ?? 0,
+                                             currentRainfall: widgetData.current?.rain ?? Precipitation(value: 0.0),
+                                             expectedRainfall: widgetData.daily?.first?.rain ?? 0,
+                                             dewPoint: widgetData.current?.dewPoint ?? 0,
+                                             windSpeed: widgetData.current?.windSpeed ?? 0,
+                                             uviValue: widgetData.current?.uvi ?? 0,
+                                             aqi: 0,
+                                             actualTemp: widgetData.current?.dt ?? 1,
+                                             uviStart: TimeConverter.convertEpochToTime(epoch: uviVales.0 ?? 0, withSeconds: false),
+                                             uviEnd: TimeConverter.convertEpochToTime(epoch: uviVales.1 ?? 24, withSeconds: false),
+                                             humidity: widgetData.current?.humidity ?? 0,
+                                             windDirection: widgetData.current?.windDeg ?? 0,
+                                             pressure: widgetData.current?.pressure ?? 0,
+                                             visibility: visibilityValue,
+                                             sunRise: widgetData.current?.sunrise ?? 0,
+                                             sunSet: sunsetTime,
+                                             currentTime: currentTime,
+                                             isSunrise: isSunrise,
+                                             visibilityDescription: getVisibilityDescription(visibility: visibilityValue))
+        )
+    }
+    
+    private func getUVIValues(hourly: [HourlyForecast]) -> (Double?, Double?){
+        var start: Double? = nil
+        var end: Double? = nil
+            
+        for item in hourly.prefix(24){
+            if item.uvi ?? 10 > 2{
+                if start == nil{
+                    start = item.uvi
+                }
+                end = item.uvi
+            }
+        }
+        return (start, end)
     }
 }

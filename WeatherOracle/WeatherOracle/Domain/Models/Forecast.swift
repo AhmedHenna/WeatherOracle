@@ -29,27 +29,25 @@ struct WeatherForcast: Identifiable {
 
 struct WidgetForecast : Identifiable {
     var id = UUID()
+    var feelsLike: Double
+    var currentRainfall: Precipitation
+    var expectedRainfall: Double
+    var dewPoint: Double
+    var windSpeed: Double
+    var uviValue: Double
     var aqi: Int
-    var feelsLike: Int
     var actualTemp: Int
-    var uviValue: Int
-    var uviStart: Int
-    var uviEnd: Int
+    var uviStart: String
+    var uviEnd: String
     var humidity: Int
-    var dewPoint: Int
-    var windSpeed: Int
     var windDirection: Int
     var pressure: Int
-    var currentRainfall: Double
-    var expectedRainfall: Double
     var visibility: Int
-    var visibilityDirection: Int
-    var isSunrise: Bool
     var sunRise: Int
     var sunSet: Int
     var currentTime: Int
-    
-    
+    var isSunrise: Bool
+    var visibilityDescription: String
 }
 
 extension Forecast {
@@ -57,7 +55,7 @@ extension Forecast {
     static let day: TimeInterval = 60 * 60 * 24
     
     
- 
+    
     static let cities: [Forecast] = [
         Forecast(date: .now, weather: .sunny, probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun"),
         Forecast(date: .now, weather: .clear, probability: 0, temperature: 20, high: 32, low: 19, location: "Dubai, UAE",icon: "Moon"),
