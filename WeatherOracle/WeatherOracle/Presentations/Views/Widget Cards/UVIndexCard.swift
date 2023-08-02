@@ -10,8 +10,8 @@ import SwiftUI
 
 struct UVIndexCard: View {
     @State var uviValue : Int
-    @State var startTime: Int
-    @State var endTime: Int
+    @State var startTime: String
+    @State var endTime: String
     
     
     var body: some View {
@@ -45,6 +45,6 @@ struct UVIndexCard: View {
 
 struct UVIndexCard_Previews: PreviewProvider {
     static var previews: some View {
-        UVIndexCard(uviValue:  11  , startTime: 9, endTime: 6)
+        UVIndexCard(uviValue:  11  , startTime: "9:03", endTime: "6:00")
     }
 }

@@ -36,7 +36,7 @@ struct WidgetForecast : Identifiable {
     var windSpeed: Double
     var uviValue: Double
     var aqi: Int
-    var actualTemp: Int
+    var actualTemp: Double
     var uviStart: String
     var uviEnd: String
     var humidity: Int

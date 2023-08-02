@@ -35,11 +35,14 @@ struct HomeView: View {
             let imageOffset = screenHeight + 36
             Group{
                 mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1,
-                               sunset: viewModel.weatherData?.current?.sunset ?? 1)
+                               sunset: viewModel.weatherData?.current?.sunset ?? 1,
+                               sunrise: viewModel.weatherData?.current?.sunrise ?? 1
+                               )
                 .ignoresSafeArea()
                 
                 Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1,
-                                     sunset: viewModel.weatherData?.current?.sunset ?? 1))
+                                     sunset: viewModel.weatherData?.current?.sunset ?? 1,
+                                     sunrise: viewModel.weatherData?.current?.sunrise ?? 1))
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 270)
                 .offset(y: -bottomSheetTranslationChanged * imageOffset)
@@ -99,8 +102,10 @@ struct HomeView: View {
                 ForecastView(bottomSheetTranslationChanged: bottomSheetTranslationChanged,
                              hourlyData: viewModel.hourlyData,
                              dailyData: viewModel.dailyData,
-                             dayTime: viewModel.weatherData?.current?.dt ?? 1,
+                             widgetData: viewModel.widgetCardData.first,
+                             currentTime: viewModel.weatherData?.current?.dt ?? 1,
                              sunset: viewModel.weatherData?.current?.sunset ?? 1,
+                             sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
                              hasDragged: $hasDragged)
                 .foregroundColor(.white)
             }

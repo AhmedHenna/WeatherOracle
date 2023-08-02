@@ -11,8 +11,10 @@ struct ForecastView: View {
     var bottomSheetTranslationChanged: CGFloat = 1
     var hourlyData: [WeatherForcast]
     var dailyData: [WeatherForcast]
-    var dayTime: Int
+    var widgetData: WidgetForecast?
+    var currentTime: Int
     var sunset: Int
+    var sunrise: Int
     @State private var selection = 0
     @Binding var hasDragged: Bool
     
@@ -42,12 +44,12 @@ struct ForecastView: View {
             HStack(spacing: 12) {
                 if selection == 0 {
                     ForEach(hourlyData) { forecast in
-                        ForecastCard(dayTime: dayTime, sunset: sunset, forecast: forecast, forecastPeriod: .hourly)
+                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, forecast: forecast, forecastPeriod: .hourly)
                     }
                     .transition(.offset(x: -430))
                 } else {
                     ForEach(dailyData) { forecast in
-                        ForecastCard(dayTime: dayTime, sunset: sunset, forecast: forecast, forecastPeriod: .daily)
+                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, forecast: forecast, forecastPeriod: .daily)
                     }
                     .transition(.offset(x: 430))
                 }
@@ -77,15 +79,20 @@ struct ForecastView: View {
         VStack{
             AirQualityCard(aqiValue: 75)
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
-                FeelsLikeCard(feelsLikeTemp: 55, actualTemp: 80)
-                UVIndexCard(uviValue:  5  , startTime: 9, endTime: 6)
+                FeelsLikeCard(feelsLikeTemp: Int(round(widgetData?.feelsLike ?? 0)),
+                              actualTemp: Int(round(widgetData?.actualTemp ?? 0)))
+                
+                UVIndexCard(uviValue:  Int(round(widgetData?.uviValue ?? 0)),
+                            startTime: widgetData?.uviStart ?? "",
+                            endTime: widgetData?.uviEnd ?? "")
+                
                 HumidityCard(humidity: 83, dewPoint: 19)
                 WindCard(speed: 9.7, direction: 240)
                 PressureCard(pressure: 1000)
                 RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
                 VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
                 SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651)
-
+                
             }
             
         }
@@ -98,10 +105,12 @@ struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
         ForecastView(hourlyData: [],
                      dailyData: [],
-                     dayTime: 1,
+                     widgetData: nil,
+                     currentTime: 1,
                      sunset: 1,
+                     sunrise: 1,
                      hasDragged: .constant(false))
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
 

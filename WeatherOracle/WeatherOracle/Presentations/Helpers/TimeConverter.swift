@@ -26,22 +26,24 @@ class TimeConverter {
     }
     
     
-    static func getTimeOfDay(currentTime: Int, sunset: Int) -> String {
+    static func getTimeOfDay(currentTime: Int, sunset: Int, sunrise: Int) -> String {
         let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime), withSeconds: true)
+        
         let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset), withSeconds: true)
+        let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunrise), withSeconds: true)
         let afternoon = "12:00:00"
         
-        if currentTime < afternoon{
+        
+        
+        if currentTime < afternoon && currentTime > sunrise{
             return "Morning"
             
         }else if currentTime > afternoon && currentTime < sunset{
             return "Afternoon"
             
-        }else if currentTime > sunset{
+        }else {
             return "Night"
         }
-        
-        return "Morning"
     }
     
     static func convertEpochToTime(epoch: TimeInterval, withSeconds: Bool) -> String {

@@ -16,7 +16,8 @@ class HomeViewModel : ObservableObject{
     @Published var dailyData : [WeatherForcast] = []
     @Published var widgetCardData : [WidgetForecast] = []
     private let getWeatherData = GetWeatherData()
-    
+   
+    // MARK: - Waiting for response from user
     private lazy var locationManager: LocationManager = {
         LocationManager { [weak self] latitude, longitude in
             self?.fetchWeatherData(lat: latitude, lon: longitude)
@@ -28,6 +29,7 @@ class HomeViewModel : ObservableObject{
         
     }
     
+    // MARK: - Getting Data from API
     private func fetchWeatherData(lat: Double, lon: Double) {
         getWeatherData.execute(lat: lat, lon: lon) { [weak self] result in
             switch result {
@@ -89,8 +91,9 @@ class HomeViewModel : ObservableObject{
         
         let currentTime = widgetData.current?.dt ?? 0
         let sunsetTime = widgetData.current?.sunset ?? 0
-        let isSunrise = (TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime) == "Morning" ||
-                         TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime) == "Afternoon")
+        let sunriseTime = widgetData.current?.sunrise ?? 0
+        let isSunrise = (TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime, sunrise: sunriseTime) == "Morning" ||
+                         TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime, sunrise: sunriseTime) == "Afternoon")
         let visibilityValue = widgetData.current?.visibility ?? 0
         let uviVales = getUVIValues(hourly: widgetDataHourly)
         
@@ -101,9 +104,9 @@ class HomeViewModel : ObservableObject{
                                              windSpeed: widgetData.current?.windSpeed ?? 0,
                                              uviValue: widgetData.current?.uvi ?? 0,
                                              aqi: 0,
-                                             actualTemp: widgetData.current?.dt ?? 1,
-                                             uviStart: TimeConverter.convertEpochToTime(epoch: uviVales.0 ?? 0, withSeconds: false),
-                                             uviEnd: TimeConverter.convertEpochToTime(epoch: uviVales.1 ?? 24, withSeconds: false),
+                                             actualTemp: widgetData.current?.temp ?? 0,
+                                             uviStart: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.0 ?? 0), withSeconds: false),
+                                             uviEnd: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.1 ?? 24), withSeconds: false),
                                              humidity: widgetData.current?.humidity ?? 0,
                                              windDirection: widgetData.current?.windDeg ?? 0,
                                              pressure: widgetData.current?.pressure ?? 0,
@@ -116,18 +119,20 @@ class HomeViewModel : ObservableObject{
         )
     }
     
-    private func getUVIValues(hourly: [HourlyForecast]) -> (Double?, Double?){
-        var start: Double? = nil
-        var end: Double? = nil
+    //MARK: - Helper Methods
+    private func getUVIValues(hourly: [HourlyForecast]) -> (Int?, Int?){
+        var start: Int? = nil
+        var end: Int? = nil
             
         for item in hourly.prefix(24){
             if item.uvi ?? 10 > 2{
                 if start == nil{
-                    start = item.uvi
+                    start = item.dt
                 }
-                end = item.uvi
+                end = item.dt
             }
         }
+        
         return (start, end)
     }
 }

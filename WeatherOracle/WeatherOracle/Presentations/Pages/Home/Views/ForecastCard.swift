@@ -10,6 +10,7 @@ import SwiftUI
 struct ForecastCard: View {
     var dayTime: Int
     var sunset: Int
+    var sunrise: Int
     var forecast: WeatherForcast
     var forecastPeriod: ForecastPeriod
     var isActive: Bool {
@@ -52,7 +53,7 @@ struct ForecastCard: View {
                 .font(.subheadline.weight(.semibold))
             
             VStack(spacing: -20) {
-                Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: dayTime, sunset: sunset)))
+                Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: dayTime, sunset: sunset, sunrise: sunrise)))
                     .resizable().frame(width: 80, height: 80)
                 
                 Text(forecast.rainPercentage, format: .percent)
@@ -79,6 +80,7 @@ struct ForecastCard_Previews: PreviewProvider {
         ForecastCard(
             dayTime: 1,
             sunset: 1,
+            sunrise: 1,
             forecast: WeatherForcast(date: TimeConverter.convertEpochToDate(
                 epoch: TimeInterval(1690394400)),
                                      temperature: 27,

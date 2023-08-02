@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-func mapTimeToColor(time: Int, sunset: Int) -> LinearGradient{
-    let time = TimeConverter.getTimeOfDay(currentTime: time, sunset: sunset)
+func mapTimeToColor(time: Int, sunset: Int, sunrise: Int) -> LinearGradient{
+    let time = TimeConverter.getTimeOfDay(currentTime: time, sunset: sunset, sunrise: sunrise)
     
     if time == "Morning"{
         return Color.linearBackgroundMorning
@@ -20,8 +20,8 @@ func mapTimeToColor(time: Int, sunset: Int) -> LinearGradient{
     }
 }
 
-func mapTimeToImage(time: Int, sunset: Int) -> String{
-    let time = TimeConverter.getTimeOfDay(currentTime: time, sunset: sunset)
+func mapTimeToImage(time: Int, sunset: Int, sunrise: Int) -> String{
+    let time = TimeConverter.getTimeOfDay(currentTime: time, sunset: sunset, sunrise: sunrise)
 
     if time == "Morning"{
         return "Home Morning"
@@ -31,6 +31,7 @@ func mapTimeToImage(time: Int, sunset: Int) -> String{
         return "Home Night"
     }
 }
+
 
 func mapToIcon(id: Int, time: String) -> String{
     
