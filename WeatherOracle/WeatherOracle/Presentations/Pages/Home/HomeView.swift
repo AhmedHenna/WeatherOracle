@@ -44,8 +44,9 @@ struct HomeView: View {
                                      sunset: viewModel.weatherData?.current?.sunset ?? 1,
                                      sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
                                      offset: viewModel.weatherData?.timezoneOffset ?? 1))
-                .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.top, 270)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.top, 190)
                 .offset(y: -bottomSheetTranslationChanged * imageOffset)
             }
         }
