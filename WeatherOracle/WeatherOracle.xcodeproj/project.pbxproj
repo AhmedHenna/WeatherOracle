@@ -29,6 +29,7 @@
 		2953982E2A69A14600850478 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2953982D2A69A14600850478 /* Compass.swift */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
+		298503DC2A7C370E00917D9C /* WidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298503DB2A7C370E00917D9C /* WidgetHelper.swift */; };
 		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
 		298DFFEA2A64974B00ECC3F6 /* SunriseSunsetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */; };
 		298DFFEC2A649B2200ECC3F6 /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */; };
@@ -86,6 +87,7 @@
 		2953982D2A69A14600850478 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		298503DB2A7C370E00917D9C /* WidgetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHelper.swift; sourceTree = "<group>"; };
 		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetCard.swift; sourceTree = "<group>"; };
 		298DFFEB2A649B2200ECC3F6 /* StrokeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeModifier.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				299CFDEF2A65853400FABC2A /* TimeConverter.swift */,
 				29105BAC2A67EDD300F5EA67 /* TextHelpers.swift */,
 				29DB76A82A771AB0007A4373 /* Mapping.swift */,
+				298503DB2A7C370E00917D9C /* WidgetHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				29BA6ADC2A5B769C00E3C514 /* Trapezoid.swift in Sources */,
 				2953982B2A696BFA00850478 /* Glow.swift in Sources */,
 				29C3B7732A6C812100951674 /* WeatherRepository.swift in Sources */,
+				298503DC2A7C370E00917D9C /* WidgetHelper.swift in Sources */,
 				29930CA52A5C1E05007F82C6 /* ForecastCard.swift in Sources */,
 				295398252A6954C200850478 /* WindCard.swift in Sources */,
 				290627F42A64A5C900133E63 /* WidgetCardContainer.swift in Sources */,

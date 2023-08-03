@@ -36,13 +36,14 @@ struct HomeView: View {
             Group{
                 mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1,
                                sunset: viewModel.weatherData?.current?.sunset ?? 1,
-                               sunrise: viewModel.weatherData?.current?.sunrise ?? 1
-                               )
+                               sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
+                               offset: viewModel.weatherData?.timezoneOffset ?? 1)
                 .ignoresSafeArea()
                 
                 Image(mapTimeToImage(time: viewModel.weatherData?.current?.dt ?? 1,
                                      sunset: viewModel.weatherData?.current?.sunset ?? 1,
-                                     sunrise: viewModel.weatherData?.current?.sunrise ?? 1))
+                                     sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
+                                     offset: viewModel.weatherData?.timezoneOffset ?? 1))
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 270)
                 .offset(y: -bottomSheetTranslationChanged * imageOffset)
@@ -106,6 +107,7 @@ struct HomeView: View {
                              currentTime: viewModel.weatherData?.current?.dt ?? 1,
                              sunset: viewModel.weatherData?.current?.sunset ?? 1,
                              sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
+                             offset: viewModel.weatherData?.timezoneOffset ?? 1,
                              hasDragged: $hasDragged)
                 .foregroundColor(.white)
             }

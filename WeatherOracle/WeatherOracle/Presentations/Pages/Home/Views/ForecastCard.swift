@@ -11,14 +11,16 @@ struct ForecastCard: View {
     var dayTime: Int
     var sunset: Int
     var sunrise: Int
+    var offset: Int
     var forecast: WeatherForcast
     var forecastPeriod: ForecastPeriod
+    var firstEntry: Date
     var isActive: Bool {
         if forecastPeriod == ForecastPeriod.hourly {
-            let isThisHour = Calendar.current.isDate(.now, equalTo: forecast.date, toGranularity: .hour)
+            let isThisHour = Calendar.current.isDate(forecast.date, equalTo: firstEntry , toGranularity: .hour)
             return isThisHour
         } else {
-            let isToday = Calendar.current.isDate(.now, equalTo: forecast.date, toGranularity: .day)
+            let isToday = Calendar.current.isDate(forecast.date, equalTo: firstEntry, toGranularity: .day)
             return isToday
         }
     }
@@ -49,11 +51,12 @@ struct ForecastCard: View {
     
     var cardDetails : some View{
         VStack(spacing: 16) {
-            Text(forecast.date, format: forecastPeriod == ForecastPeriod.hourly ? .dateTime.hour() : .dateTime.weekday())
-                .font(.subheadline.weight(.semibold))
+            Text(formatDate(forecast.date, forecastPeriod: forecastPeriod))
+                        .font(.subheadline.weight(.semibold))
+                        .frame(width: 60)
             
             VStack(spacing: -20) {
-                Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: dayTime, sunset: sunset, sunrise: sunrise)))
+                Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: dayTime, sunset: sunset, sunrise: sunrise, offset: offset)))
                     .resizable().frame(width: 80, height: 80)
                 
                 Text(forecast.rainPercentage, format: .percent)
@@ -81,13 +84,26 @@ struct ForecastCard_Previews: PreviewProvider {
             dayTime: 1,
             sunset: 1,
             sunrise: 1,
+            offset: 1,
             forecast: WeatherForcast(date: TimeConverter.convertEpochToDate(
-                epoch: TimeInterval(1690394400)),
+                epoch: TimeInterval(1690394400), timeZoneOffset: 0),
                                      temperature: 27,
                                      rainPercentage: 0.1,
                                      weatherID: 800),
-            forecastPeriod: .daily
+            forecastPeriod: .daily,
+            firstEntry: Date()
         )
         .preferredColorScheme(.dark)
     }
+}
+
+private func formatDate(_ date: Date, forecastPeriod: ForecastPeriod) -> String {
+    let dateFormatter = DateFormatter()
+    if forecastPeriod == .hourly {
+        dateFormatter.dateFormat = "h a"
+    } else {
+        dateFormatter.dateFormat = "EEE"
+    }
+    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+    return dateFormatter.string(from: date)
 }

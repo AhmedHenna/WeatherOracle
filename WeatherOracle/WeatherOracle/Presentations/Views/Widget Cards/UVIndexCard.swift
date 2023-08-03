@@ -33,7 +33,7 @@ struct UVIndexCard: View {
     
             Spacer()
             
-            Text("Use sun protection from \(startTime)am-\(endTime)pm.")
+            Text("Use sun protection from \(startTime)-\(endTime).")
             .font(.caption)
             .lineLimit(nil)
             .offset(y:-5)

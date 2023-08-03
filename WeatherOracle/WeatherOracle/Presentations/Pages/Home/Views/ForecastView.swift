@@ -15,6 +15,7 @@ struct ForecastView: View {
     var currentTime: Int
     var sunset: Int
     var sunrise: Int
+    var offset: Int
     @State private var selection = 0
     @Binding var hasDragged: Bool
     
@@ -44,12 +45,16 @@ struct ForecastView: View {
             HStack(spacing: 12) {
                 if selection == 0 {
                     ForEach(hourlyData) { forecast in
-                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, forecast: forecast, forecastPeriod: .hourly)
+                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, offset: offset,
+                                     forecast: forecast, forecastPeriod: .hourly,
+                                     firstEntry: hourlyData.first?.date ?? Date())
                     }
                     .transition(.offset(x: -430))
                 } else {
                     ForEach(dailyData) { forecast in
-                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, forecast: forecast, forecastPeriod: .daily)
+                        ForecastCard(dayTime: currentTime, sunset: sunset, sunrise: sunrise, offset: offset,
+                                     forecast: forecast, forecastPeriod: .daily,
+                                     firstEntry: dailyData.first?.date ?? Date())
                     }
                     .transition(.offset(x: 430))
                 }
@@ -91,7 +96,7 @@ struct ForecastView: View {
                 PressureCard(pressure: 1000)
                 RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
                 VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
-                SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651)
+                SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651, offset: offset)
                 
             }
             
@@ -109,6 +114,7 @@ struct ForecastView_Previews: PreviewProvider {
                      currentTime: 1,
                      sunset: 1,
                      sunrise: 1,
+                     offset: 1,
                      hasDragged: .constant(false))
         .preferredColorScheme(.dark)
     }

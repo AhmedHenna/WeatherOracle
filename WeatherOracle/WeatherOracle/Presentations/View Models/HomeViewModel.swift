@@ -53,8 +53,8 @@ class HomeViewModel : ObservableObject{
         }
         
         for item in hourlyArray.prefix(24) {
-            let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
-            let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp)
+                let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
+                let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp, timeZoneOffset: weatherData?.timezoneOffset ?? 0)
             hourlyData.append(WeatherForcast(date: date,
                                              temperature: Int(round(item.temp ?? 0)),
                                              rainPercentage: item.pop ?? 0,
@@ -70,7 +70,7 @@ class HomeViewModel : ObservableObject{
         
         for item in dailyArray.prefix(7) {
             let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
-            let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp)
+            let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp, timeZoneOffset: weatherData?.timezoneOffset ?? 0)
             dailyData.append(WeatherForcast(date: date,
                                             temperature: Int(round(item.temp?.morn ?? 0)),
                                             rainPercentage: item.pop ?? 0,
@@ -92,8 +92,10 @@ class HomeViewModel : ObservableObject{
         let currentTime = widgetData.current?.dt ?? 0
         let sunsetTime = widgetData.current?.sunset ?? 0
         let sunriseTime = widgetData.current?.sunrise ?? 0
-        let isSunrise = (TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime, sunrise: sunriseTime) == "Morning" ||
-                         TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime, sunrise: sunriseTime) == "Afternoon")
+        let isSunrise = (TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime,
+                                                    sunrise: sunriseTime, offset: widgetData.timezoneOffset ?? 0) == "Morning" ||
+                         TimeConverter.getTimeOfDay(currentTime: currentTime, sunset: sunsetTime,
+                                                    sunrise: sunriseTime, offset: widgetData.timezoneOffset ?? 0) == "Afternoon")
         let visibilityValue = widgetData.current?.visibility ?? 0
         let uviVales = getUVIValues(hourly: widgetDataHourly)
         
@@ -105,8 +107,8 @@ class HomeViewModel : ObservableObject{
                                              uviValue: widgetData.current?.uvi ?? 0,
                                              aqi: 0,
                                              actualTemp: widgetData.current?.temp ?? 0,
-                                             uviStart: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.0 ?? 0), withSeconds: false),
-                                             uviEnd: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.1 ?? 24), withSeconds: false),
+                                             uviStart: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.0 ?? 0), withSeconds: false, timeZoneOffset: widgetData.timezoneOffset ?? 0, is12HourFormat: true),
+                                             uviEnd: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.1 ?? 12), withSeconds: false, timeZoneOffset: widgetData.timezoneOffset ?? 0, is12HourFormat: true),
                                              humidity: widgetData.current?.humidity ?? 0,
                                              windDirection: widgetData.current?.windDeg ?? 0,
                                              pressure: widgetData.current?.pressure ?? 0,
@@ -117,22 +119,5 @@ class HomeViewModel : ObservableObject{
                                              isSunrise: isSunrise,
                                              visibilityDescription: getVisibilityDescription(visibility: visibilityValue))
         )
-    }
-    
-    //MARK: - Helper Methods
-    private func getUVIValues(hourly: [HourlyForecast]) -> (Int?, Int?){
-        var start: Int? = nil
-        var end: Int? = nil
-            
-        for item in hourly.prefix(24){
-            if item.uvi ?? 10 > 2{
-                if start == nil{
-                    start = item.dt
-                }
-                end = item.dt
-            }
-        }
-        
-        return (start, end)
     }
 }

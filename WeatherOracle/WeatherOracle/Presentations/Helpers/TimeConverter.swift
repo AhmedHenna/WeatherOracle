@@ -8,8 +8,8 @@
 import Foundation
 
 class TimeConverter {
-    func timeToMinutes(epoch: Int) -> Int {
-        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(epoch), withSeconds: true)
+    func timeToMinutes(epoch: Int, offset: Int) -> Int {
+        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(epoch), withSeconds: true, timeZoneOffset: offset)
         
         let components = currentTime.split(separator: ":")
           guard components.count == 3,
@@ -21,16 +21,30 @@ class TimeConverter {
         return hour * 60 + minute
     }
     
-    static func convertEpochToDate(epoch: TimeInterval) -> Date {
-        return Date(timeIntervalSince1970: epoch)
+    static func convertEpochToDate(epoch: TimeInterval, timeZoneOffset: Int) -> Date {
+        return Date(timeIntervalSince1970: epoch + TimeInterval(timeZoneOffset))
     }
     
-    
-    static func getTimeOfDay(currentTime: Int, sunset: Int, sunrise: Int) -> String {
-        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime), withSeconds: true)
+    static func convertEpochToTime(epoch: TimeInterval, withSeconds: Bool, timeZoneOffset: Int, is12HourFormat: Bool = false) -> String {
+        let date = Date(timeIntervalSince1970: epoch)
         
-        let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset), withSeconds: true)
-        let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunrise), withSeconds: true)
+        let dateFormatter = DateFormatter()
+        if withSeconds {
+            dateFormatter.dateFormat = is12HourFormat ? "h:mm:ss a" : "HH:mm:ss"
+        } else {
+            dateFormatter.dateFormat = is12HourFormat ? "h:mm a" : "HH:mm"
+        }
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: timeZoneOffset)
+        
+        return dateFormatter.string(from: date)
+    }
+
+    
+    static func getTimeOfDay(currentTime: Int, sunset: Int, sunrise: Int, offset: Int) -> String {
+        let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime), withSeconds: true, timeZoneOffset: offset)
+        
+        let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunset), withSeconds: true, timeZoneOffset: offset)
+        let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunrise), withSeconds: true, timeZoneOffset: offset)
         let afternoon = "12:00:00"
         
         
@@ -46,28 +60,5 @@ class TimeConverter {
         }
     }
     
-    static func convertEpochToTime(epoch: TimeInterval, withSeconds: Bool) -> String {
-        let date = Date(timeIntervalSince1970: epoch)
-        let calendar = Calendar.current
-        let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: date)
-        
-        guard var hour = timeComponents.hour,
-              let minute = timeComponents.minute,
-              let second = timeComponents.second else {
-            return "Invalid epoch"
-        }
-        
-        if withSeconds {
-            let formattedTime = String(format: "%2d:%02d:%02d", hour, minute, second)
-            return formattedTime
-        }else{
-            
-            if hour >= 12{
-                hour = hour - 12
-            }
-            
-            let formattedTime = String(format: "%2d:%02d", hour, minute)
-            return formattedTime
-        }
-    }
+    
 }

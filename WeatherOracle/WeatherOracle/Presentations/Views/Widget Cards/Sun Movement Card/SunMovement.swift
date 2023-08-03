@@ -10,6 +10,7 @@ import SwiftUI
 struct SunMovement: View {
     @State var time: Int
     @State var progressValue = CGFloat(0)
+    var offset: Int
     var strokeColor : LinearGradient
     var sunColor : Color
     
@@ -17,7 +18,7 @@ struct SunMovement: View {
     
     var body: some View {
         let circlePosition = CGPoint(x: 0, y: 133)
-        let minsFromTime = TimeConverter().timeToMinutes(epoch: time)
+        let minsFromTime = TimeConverter().timeToMinutes(epoch: time, offset: offset)
         
         ZStack {
             SunPath()
@@ -42,6 +43,6 @@ struct SunMovement: View {
 
 struct SunMovementPreviews: PreviewProvider {
     static var previews: some View {
-        SunMovement(time: 1684929490 , strokeColor: Color.linearBackgroundNight, sunColor: .yellow)
+        SunMovement(time: 1684929490 , offset: 0, strokeColor: Color.linearBackgroundNight, sunColor: .yellow)
     }
 }
