@@ -91,12 +91,23 @@ struct ForecastView: View {
                             startTime: widgetData?.uviStart ?? "",
                             endTime: widgetData?.uviEnd ?? "")
                 
-                HumidityCard(humidity: 83, dewPoint: 19)
-                WindCard(speed: 9.7, direction: 240)
-                PressureCard(pressure: 1000)
-                RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
-                VisibilityCard(visibileMeters: 5000, weatehrState: "Fog")
-                SunriseSunsetCard(isSunrise: true, sunRise: 1690950305, sunSet: 1691005706, currentTime: 1690983651, offset: offset)
+                HumidityCard(humidity: widgetData?.humidity ?? 0,
+                             dewPoint: Int(round(widgetData?.dewPoint ?? 0.0)))
+                
+                WindCard(speed: widgetData?.windSpeed ?? 0.0,
+                         direction: CGFloat(widgetData?.windDirection ?? 0))
+                
+                PressureCard(pressure: widgetData?.pressure ?? 0)
+                
+                RainfallCard(currentRainfall: widgetData?.currentRainfall ?? Precipitation(value: 0),
+                             expectedRainfall24H: widgetData?.expectedRainfall ?? 0.0)
+            
+                VisibilityCard(visibileMeters: widgetData?.visibility ?? 0,
+                               weatehrState: widgetData?.visibilityDescription ?? "")
+                
+                SunriseSunsetCard(isSunrise: true, sunRise: widgetData?.sunRise ?? 0,
+                                  sunSet: widgetData?.sunSet ?? 0,
+                                  currentTime: widgetData?.currentTime ?? 0, offset: offset)
                 
             }
             

@@ -27,9 +27,9 @@ struct SunriseSunsetCard: View {
     
     var content : some View {
         VStack (alignment: .leading, spacing: 10){
-            let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunRise), withSeconds: false, timeZoneOffset: offset)
+            let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunRise), withSeconds: false, timeZoneOffset: offset, is12HourFormat: true)
             
-            let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunSet), withSeconds: false, timeZoneOffset: offset)
+            let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunSet), withSeconds: false, timeZoneOffset: offset, is12HourFormat: true)
         
             
             Text(isSunrise ? "\(sunrise)" : "\(sunset)")
@@ -42,7 +42,6 @@ struct SunriseSunsetCard: View {
             HStack (spacing: 2){
                 Text(isSunrise ? "Sunset:" : "Sunrise:")
                 Text(isSunrise ? "\(sunset)" : "\(sunrise)")
-                Text(isSunrise ? "pm" : "am")
             }
             .font(.caption)
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RainfallCard: View {
-    @State var currentRainfall : Double
+    @State var currentRainfall : Precipitation
     @State var expectedRainfall24H : Double
     
     
@@ -20,7 +20,7 @@ struct RainfallCard: View {
     
     var content: some View{
         VStack (alignment: .leading, spacing: 10){
-            Text("\(formatNumber(_: currentRainfall)) mm")
+            Text("\(formatNumber(_: currentRainfall.value ?? 0)) mm")
                 .font(.title)
             
             Spacer()
@@ -35,6 +35,6 @@ struct RainfallCard: View {
 
 struct RainfallCard_Previews: PreviewProvider {
     static var previews: some View {
-        RainfallCard(currentRainfall: 0.23, expectedRainfall24H: 0.05 )
+        RainfallCard(currentRainfall: Precipitation(value: 0), expectedRainfall24H: 0.05 )
     }
 }

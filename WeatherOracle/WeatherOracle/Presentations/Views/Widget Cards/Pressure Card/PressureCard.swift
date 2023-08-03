@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PressureCard: View {
-    @State var pressure : Double
+    @State var pressure : Int
     
     
     var body: some View {
@@ -19,7 +19,7 @@ struct PressureCard: View {
     
     var content: some View{
         VStack(alignment: .center, spacing: -10){
-            let hectopascalsToInchesOfMercury = pressure / 33.8639
+            let hectopascalsToInchesOfMercury = Double(pressure) / 33.8639
             let mappedValue = ((hectopascalsToInchesOfMercury) - 28) * (270) / (31 - 28)
             
             PressureSemiCircle(pressureValue: hectopascalsToInchesOfMercury, rotation: mappedValue)

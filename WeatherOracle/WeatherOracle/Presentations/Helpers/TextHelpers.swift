@@ -88,13 +88,13 @@ func airQualityDescription(aqiValue: Int) -> String{
 func getVisibilityDescription(visibility: Int) -> String {
     switch visibility {
     case 0..<1000:
-        return "Poor Visibility (< 1 km)"
+        return "Visibility is very poor. Please exercise caution."
     case 1000..<5000:
-        return "Moderate Visibility (1 km - 5 km)"
+        return "Visibility is poor. Drive carefully and stay safe. "
     case 5000..<8000:
-        return "Good Visibility (5 km - 8 km)"
-    case 8000..<10000:
-        return "Excellent Visibility (8 km - 10km)"
+        return "Visibility is moderate. Be aware of your surroundings."
+    case 8000...10000:
+        return "It's perfectly clear right now"
     default:
         return "Unknown Visibility"
     }

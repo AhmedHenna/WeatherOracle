@@ -25,8 +25,7 @@ struct VisibilityCard: View {
             
             Spacer()
             
-            Text(visibileMeters <= 5000 ? "It is perfectly clear right now."
-                 : "Visibility is currently hampered by \(weatehrState) ")
+            Text(weatehrState)
             .font(.caption)
             .offset(y: -5)
         }
