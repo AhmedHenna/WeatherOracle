@@ -31,5 +31,5 @@ extension Color {
         Color(red: 0xD6/255.0, green: 0x83/255.0, blue: 0xF0/255.0),
         Color(red: 0x80/255.0, green: 0x17/255.0, blue: 0x2C/255.0),
         Color(red: 0x80/255.0, green: 0x17/255.0, blue: 0x2C/255.0),
-    ]), startPoint: .leading, endPoint: .trailing)
+    ]), startPoint: .topLeading, endPoint: .bottomTrailing)
 }

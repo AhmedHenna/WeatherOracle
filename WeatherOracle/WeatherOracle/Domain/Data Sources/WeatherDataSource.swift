@@ -9,4 +9,6 @@ import SwiftUI
 
 protocol WeatherDataSource {
     func fetchWeatherData(lat: Double, lon: Double, completion: @escaping (Result<Weather, Error>) -> Void)
+    
+    func fetchAirPollutionData(lat: Double, lon: Double, completion: @escaping (Result<AQIResponse, Error>) -> Void) 
 }

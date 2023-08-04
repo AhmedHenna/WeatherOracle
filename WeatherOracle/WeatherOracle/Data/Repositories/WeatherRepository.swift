@@ -13,4 +13,8 @@ class WeatherRepository: WeatherDataSource {
     func fetchWeatherData(lat: Double, lon: Double, completion: @escaping (Result<Weather, Error>) -> Void) {
         apiClient.fetchWeatherData(lat: lat, lon: lon, completion: completion)
     }
+    
+    func fetchAirPollutionData(lat: Double, lon: Double, completion: @escaping (Result<AQIResponse, Error>) -> Void) {
+        apiClient.fetchAirPollutionData(lat: lat, lon: lon, completion: completion)
+    }
 }

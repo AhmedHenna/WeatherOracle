@@ -41,4 +41,38 @@ class OpenWeatherAPI {
             }
         }.resume()
     }
+    
+    func fetchAirPollutionData(lat: Double, lon: Double, completion: @escaping (Result<AQIResponse, Error>) -> Void) {
+           let baseURL = "https://api.openweathermap.org/data/2.5/air_pollution"
+           let urlString = "\(baseURL)?lat=\(lat)&lon=\(lon)&appid=\(apiKey)"
+
+           guard let url = URL(string: urlString) else {
+               completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+               return
+           }
+
+           URLSession.shared.dataTask(with: url) { data, response, error in
+               if let error = error {
+                   completion(.failure(error))
+                   return
+               }
+
+               guard let data = data else {
+                   completion(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))
+                   return
+               }
+
+               do {
+                   let decoder = JSONDecoder()
+                   decoder.dateDecodingStrategy = .secondsSince1970
+                   decoder.keyDecodingStrategy = .convertFromSnakeCase
+                   let aqiResponse = try decoder.decode(AQIResponse.self, from: data)
+                   completion(.success(aqiResponse))
+               } catch {
+                   completion(.failure(error))
+               }
+           }.resume()
+       }
+    
+    
 }

@@ -29,6 +29,8 @@
 		2953982E2A69A14600850478 /* Compass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2953982D2A69A14600850478 /* Compass.swift */; };
 		295D2EF72A58803B005F7EF0 /* ColorGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EF62A58803B005F7EF0 /* ColorGradients.swift */; };
 		295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D2EFB2A588A36005F7EF0 /* HomeView.swift */; };
+		296D86B02A7C6A0700A117EB /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296D86AF2A7C6A0700A117EB /* AirPollution.swift */; };
+		296D86B22A7C6C7200A117EB /* GetAQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296D86B12A7C6C7200A117EB /* GetAQI.swift */; };
 		298503DC2A7C370E00917D9C /* WidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298503DB2A7C370E00917D9C /* WidgetHelper.swift */; };
 		298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */; };
 		298DFFEA2A64974B00ECC3F6 /* SunriseSunsetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */; };
@@ -87,6 +89,8 @@
 		2953982D2A69A14600850478 /* Compass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compass.swift; sourceTree = "<group>"; };
 		295D2EF62A58803B005F7EF0 /* ColorGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradients.swift; sourceTree = "<group>"; };
 		295D2EFB2A588A36005F7EF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		296D86AF2A7C6A0700A117EB /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
+		296D86B12A7C6C7200A117EB /* GetAQI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAQI.swift; sourceTree = "<group>"; };
 		298503DB2A7C370E00917D9C /* WidgetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHelper.swift; sourceTree = "<group>"; };
 		298DFFE62A64973800ECC3F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		298DFFE92A64974B00ECC3F6 /* SunriseSunsetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunsetCard.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				29930CAD2A5C2085007F82C6 /* ForecastPeriod.swift */,
 				29930CAF2A5C208D007F82C6 /* Weather.swift */,
 				29A941EB2A6C180C005B4272 /* City.swift */,
+				296D86AF2A7C6A0700A117EB /* AirPollution.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			children = (
 				29A941FB2A6C2013005B4272 /* GetCities.swift */,
 				29C3B76A2A6C577D00951674 /* GetWeatherData.swift */,
+				296D86B12A7C6C7200A117EB /* GetAQI.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -502,12 +508,14 @@
 				29A941F92A6C1EAB005B4272 /* CityRepository.swift in Sources */,
 				29930CA72A5C1E1B007F82C6 /* WeatherCard.swift in Sources */,
 				29105BAD2A67EDD300F5EA67 /* TextHelpers.swift in Sources */,
+				296D86B02A7C6A0700A117EB /* AirPollution.swift in Sources */,
 				29BA6ADE2A5B76A500E3C514 /* Arc.swift in Sources */,
 				299EFA312A682A9D0085C3F1 /* IndexMeter.swift in Sources */,
 				29105BAF2A67EF1A00F5EA67 /* UVIndexCard.swift in Sources */,
 				29930CA92A5C1E2C007F82C6 /* Tabs.swift in Sources */,
 				29C3B7752A6C819900951674 /* OpenWeatherAPI.swift in Sources */,
 				29930CB02A5C208D007F82C6 /* Weather.swift in Sources */,
+				296D86B22A7C6C7200A117EB /* GetAQI.swift in Sources */,
 				29105BAB2A67EBB600F5EA67 /* RainfallCard.swift in Sources */,
 				291A10752A5E0AB900F11549 /* Blur.swift in Sources */,
 				299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */,

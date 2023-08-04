@@ -82,7 +82,7 @@ struct ForecastView: View {
     
     var widgets : some View{
         VStack{
-            AirQualityCard(aqiValue: 75)
+            AirQualityCard(aqiValue: widgetData?.aqi ?? 0)
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
                 FeelsLikeCard(feelsLikeTemp: Int(round(widgetData?.feelsLike ?? 0)),
                               actualTemp: Int(round(widgetData?.actualTemp ?? 0)))

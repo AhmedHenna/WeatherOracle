@@ -12,15 +12,19 @@ import Combine
 
 class HomeViewModel : ObservableObject{
     @Published var weatherData : Weather? = nil
+    @Published var aqiData : AQIResponse? = nil
     @Published var hourlyData : [WeatherForcast] = []
     @Published var dailyData : [WeatherForcast] = []
     @Published var widgetCardData : [WidgetForecast] = []
     private let getWeatherData = GetWeatherData()
+    private let getAQI = GetAQI()
    
     // MARK: - Waiting for response from user
     private lazy var locationManager: LocationManager = {
         LocationManager { [weak self] latitude, longitude in
             self?.fetchWeatherData(lat: latitude, lon: longitude)
+            self?.fetchAQIData(lat: latitude, lon: longitude)
+            
         }
     }()
     
@@ -42,6 +46,19 @@ class HomeViewModel : ObservableObject{
                 }
             case .failure(let error):
                 print("Error fetching weather data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func fetchAQIData(lat: Double, lon: Double) {
+        getAQI.execute(lat: lat, lon: lon) { [weak self] result in
+            switch result {
+            case .success(let aqiResponse):
+                DispatchQueue.main.async {
+                    self?.aqiData = aqiResponse
+                }
+            case .failure(let error):
+                print("Error fetching AQI data: \(error.localizedDescription)")
             }
         }
     }
@@ -105,7 +122,7 @@ class HomeViewModel : ObservableObject{
                                              dewPoint: widgetData.current?.dewPoint ?? 0,
                                              windSpeed: widgetData.current?.windSpeed ?? 0,
                                              uviValue: widgetData.current?.uvi ?? 0,
-                                             aqi: 0,
+                                             aqi: aqiData?.list.first?.main.aqi ?? 1 ,
                                              actualTemp: widgetData.current?.temp ?? 0,
                                              uviStart: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.0 ?? 0), withSeconds: false, timeZoneOffset: widgetData.timezoneOffset ?? 0, is12HourFormat: true),
                                              uviEnd: TimeConverter.convertEpochToTime(epoch: TimeInterval(uviVales.1 ?? 12), withSeconds: false, timeZoneOffset: widgetData.timezoneOffset ?? 0, is12HourFormat: true),

@@ -40,22 +40,22 @@ func uviText(uviValue: Int) -> String{
 // MARK: - AIR QUALITY
 
 func airQualityTitle(aqiValue: Int) -> String{
-    if (0...50).contains(aqiValue){
+    if aqiValue == 1 {
         return "GOOD"
     }
-    if (51...100).contains(aqiValue){
+    if aqiValue == 2 {
         return "MODERATE"
     }
-    if (101...150).contains(aqiValue){
+    if aqiValue == 3 {
         return "UNHEALTHY FOR SENSITE GROUPS"
     }
-    if (151...200).contains(aqiValue){
+    if aqiValue == 4 {
         return "UNHEALTHY"
     }
-    if (201...300).contains(aqiValue){
+    if aqiValue == 5 {
         return "VERY UNHEALTHY"
     }
-    if (301...500).contains(aqiValue){
+    if aqiValue > 5 {
         return "HAZARDOUS"
     }
     
@@ -63,27 +63,29 @@ func airQualityTitle(aqiValue: Int) -> String{
 }
 
 func airQualityDescription(aqiValue: Int) -> String{
-    if (0...50).contains(aqiValue){
+    if aqiValue == 1 {
         return "Air quality is considered satisfactory, and air pollution poses little to no risk."
     }
-    if (51...100).contains(aqiValue){
+    if aqiValue == 2 {
         return "Air quality is acceptable, but there may be a moderate health concern for a small number of individuals"
     }
-    if (101...150).contains(aqiValue){
+    if aqiValue == 3 {
         return "Members of sensitive groups, and individuals with respiratory or cardiovascular conditions, may experience health effects."
     }
-    if (151...200).contains(aqiValue){
+    if aqiValue == 4 {
         return "Some members of the general public may experience health effects. Sensitive groups are more likely to be significantly affected."
     }
-    if (201...300).contains(aqiValue){
+    if aqiValue == 5 {
         return "Health warnings are issued, as the entire population may experience more serious health effects."
     }
-    if (301...500).contains(aqiValue){
+    if aqiValue > 5 {
         return "Health emergencies are declared. Seek immediate actions to minimize exposure and protect your health are necessary."
     }
     
     return "GOOD"
 }
+
+// MARK: - Visibility
 
 func getVisibilityDescription(visibility: Int) -> String {
     switch visibility {
