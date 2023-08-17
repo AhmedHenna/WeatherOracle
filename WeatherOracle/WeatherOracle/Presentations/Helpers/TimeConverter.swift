@@ -12,12 +12,12 @@ class TimeConverter {
         let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(epoch), withSeconds: true, timeZoneOffset: offset)
         
         let components = currentTime.split(separator: ":")
-          guard components.count == 3,
-                let hour = Int(components[0]),
-                let minute = Int(components[1]) else {
-              return 0
-          }
-
+        guard components.count == 3,
+              let hour = Int(components[0]),
+              let minute = Int(components[1]) else {
+            return 0
+        }
+        
         return hour * 60 + minute
     }
     
@@ -38,7 +38,7 @@ class TimeConverter {
         
         return dateFormatter.string(from: date)
     }
-
+    
     
     static func getTimeOfDay(currentTime: Int, sunset: Int, sunrise: Int, offset: Int) -> String {
         let currentTime = TimeConverter.convertEpochToTime(epoch: TimeInterval(currentTime), withSeconds: true, timeZoneOffset: offset)

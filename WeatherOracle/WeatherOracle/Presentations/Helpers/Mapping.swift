@@ -22,7 +22,7 @@ func mapTimeToColor(time: Int, sunset: Int, sunrise: Int, offset: Int) -> Linear
 
 func mapTimeToImage(time: Int, sunset: Int, sunrise: Int, offset: Int) -> String{
     let time = TimeConverter.getTimeOfDay(currentTime: time, sunset: sunset, sunrise: sunrise, offset: offset)
-
+    
     if time == "Morning"{
         return "Home Morning"
     }else if time == "Afternoon"{

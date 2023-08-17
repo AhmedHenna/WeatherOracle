@@ -26,8 +26,8 @@ struct HumidityCard: View {
             Spacer()
             
             Text("The dew point is \(dewPoint)° right now")
-            .font(.caption)
-            .offset(y: -5)
+                .font(.caption)
+                .offset(y: -5)
         }
         .foregroundColor(.white)
     }

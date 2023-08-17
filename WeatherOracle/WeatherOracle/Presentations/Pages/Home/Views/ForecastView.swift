@@ -101,7 +101,7 @@ struct ForecastView: View {
                 
                 RainfallCard(currentRainfall: widgetData?.currentRainfall ?? Precipitation(value: 0),
                              expectedRainfall24H: widgetData?.expectedRainfall ?? 0.0)
-            
+                
                 VisibilityCard(visibileMeters: widgetData?.visibility ?? 0,
                                weatehrState: widgetData?.visibilityDescription ?? "")
                 

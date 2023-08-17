@@ -52,8 +52,8 @@ struct ForecastCard: View {
     var cardDetails : some View{
         VStack(spacing: 16) {
             Text(formatDate(forecast.date, forecastPeriod: forecastPeriod))
-                        .font(.subheadline.weight(.semibold))
-                        .frame(width: 60)
+                .font(.subheadline.weight(.semibold))
+                .frame(width: 60)
             
             VStack(spacing: -20) {
                 Image(mapToIcon(id: forecast.weatherID, time: TimeConverter.getTimeOfDay(currentTime: dayTime, sunset: sunset, sunrise: sunrise, offset: offset)))

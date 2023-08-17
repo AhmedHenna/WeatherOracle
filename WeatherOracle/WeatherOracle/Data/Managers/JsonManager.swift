@@ -10,20 +10,20 @@
 import Foundation
 
 class JsonManager {
-static let shared = JsonManager() // Singleton instance
-
+    static let shared = JsonManager() // Singleton instance
+    
     private var cities: [City] = []
-
+    
     private init() {
         loadCityData()
     }
-
+    
     private func loadCityData() {
         if let url = Bundle.main.url(forResource: "cities", withExtension: "json"),
-            let data = try? Data(contentsOf: url) {
-
+           let data = try? Data(contentsOf: url) {
+            
             let decoder = JSONDecoder()
-
+            
             do {
                 cities = try decoder.decode([City].self, from: data)
             } catch {
@@ -31,7 +31,7 @@ static let shared = JsonManager() // Singleton instance
             }
         }
     }
-
+    
     func fetchCities(with searchText: String, completion: @escaping ([City]) -> Void) {
         let filteredCities = cities.filter { city in
             if searchText.isEmpty{
@@ -40,6 +40,6 @@ static let shared = JsonManager() // Singleton instance
                 return city.city.lowercased().contains(searchText.lowercased())
             }
         }
-          completion(filteredCities)
-      }
+        completion(filteredCities)
+    }
 }

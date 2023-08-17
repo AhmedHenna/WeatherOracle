@@ -9,13 +9,13 @@ import Foundation
 
 class DataInjection {
     static let shared = DataInjection()
-
+    
     private init() {}
-
+    
     func provideCityDataSource() -> CityDataSource {
         return CityRepository.shared
     }
-
+    
     func provideJsonManager() -> JsonManager {
         return JsonManager.shared
     }

@@ -26,8 +26,8 @@ struct RainfallCard: View {
             Spacer()
             
             Text("\(formatNumber(_: expectedRainfall24H)) mm expected in the next 24h.")
-            .font(.caption)
-            .offset(y: -5)
+                .font(.caption)
+                .offset(y: -5)
         }
         .foregroundColor(.white)
     }

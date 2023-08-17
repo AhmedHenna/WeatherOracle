@@ -19,23 +19,23 @@ struct DataPersistence {
     }
     
     func savePopulatedCities() {
-            do {
-                let encodedData = try JSONEncoder().encode(cities)
-                UserDefaults.standard.set(encodedData, forKey: "PopulatedCities")
-            } catch {
-                print("Error encoding populated cities: \(error)")
-            }
+        do {
+            let encodedData = try JSONEncoder().encode(cities)
+            UserDefaults.standard.set(encodedData, forKey: "PopulatedCities")
+        } catch {
+            print("Error encoding populated cities: \(error)")
         }
-        
-        func loadPersistedData() {
-            if let data = UserDefaults.standard.data(forKey: "PopulatedCities") {
-                do {
-                    let decodedCities = try JSONDecoder().decode([Forecast].self, from: data)
-                    cities = decodedCities
-                } catch {
-                    print("Error decoding populated cities: \(error)")
-                }
+    }
+    
+    func loadPersistedData() {
+        if let data = UserDefaults.standard.data(forKey: "PopulatedCities") {
+            do {
+                let decodedCities = try JSONDecoder().decode([Forecast].self, from: data)
+                cities = decodedCities
+            } catch {
+                print("Error decoding populated cities: \(error)")
             }
         }
     }
+}
 

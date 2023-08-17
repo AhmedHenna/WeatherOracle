@@ -10,7 +10,7 @@ import Foundation
 func getUVIValues(hourly: [HourlyForecast]) -> (Int?, Int?){
     var start: Int? = nil
     var end: Int? = nil
-        
+    
     for item in hourly.prefix(24){
         if item.uvi ?? 10 > 2{
             if start == nil{

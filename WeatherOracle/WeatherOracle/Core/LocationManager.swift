@@ -11,19 +11,19 @@ import Combine
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var coordinates: (lat: Double, lon: Double) = (0, 0)
     private var locationUpdateHandler: ((Double, Double) -> Void)?
-
+    
     init(locationUpdateHandler: @escaping (Double, Double) -> Void) {
         super.init()
         self.locationUpdateHandler = locationUpdateHandler
     }
-
+    
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.delegate = self
         return manager
     }()
-
+    
     func requestLocationUpdates() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -34,7 +34,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
             print("Default")
         }
     }
-
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
@@ -43,7 +43,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
             manager.stopUpdatingLocation()
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         coordinates = (location.coordinate.latitude, location.coordinate.longitude)

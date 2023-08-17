@@ -15,24 +15,24 @@ struct PressureSemiCircle: View {
     var body: some View {
         
         ZStack{
-                Circle()
+            Circle()
                 .trim(from: 0.0, to: 0.75)
-                    .stroke(Color("Text Secondary"),
-                            style: StrokeStyle(lineWidth: 10, lineCap: .butt, dash: [2, 2]))
-                    .rotationEffect(.degrees(135))
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
-                    .frame(width: 15, height: 4)
-                    .glow()
-                    .offset(x: -50)
-                    .rotationEffect(.degrees(animation))
-                    .onAppear(){
-                        withAnimation(Animation.easeOut(duration: 2)){
-                            self.animation = pressureValue > 31 ? 225 : rotation - 45
-                        }
+                .stroke(Color("Text Secondary"),
+                        style: StrokeStyle(lineWidth: 10, lineCap: .butt, dash: [2, 2]))
+                .rotationEffect(.degrees(135))
+            
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.white)
+                .frame(width: 15, height: 4)
+                .glow()
+                .offset(x: -50)
+                .rotationEffect(.degrees(animation))
+                .onAppear(){
+                    withAnimation(Animation.easeOut(duration: 2)){
+                        self.animation = pressureValue > 31 ? 225 : rotation - 45
                     }
-            }
+                }
+        }
         .frame(width: 100, height: 100)
         
     }

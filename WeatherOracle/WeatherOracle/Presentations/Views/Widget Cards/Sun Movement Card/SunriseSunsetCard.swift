@@ -30,7 +30,7 @@ struct SunriseSunsetCard: View {
             let sunrise = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunRise), withSeconds: false, timeZoneOffset: offset, is12HourFormat: true)
             
             let sunset = TimeConverter.convertEpochToTime(epoch: TimeInterval(sunSet), withSeconds: false, timeZoneOffset: offset, is12HourFormat: true)
-        
+            
             
             Text(isSunrise ? "\(sunrise)" : "\(sunset)")
                 .font(.title)

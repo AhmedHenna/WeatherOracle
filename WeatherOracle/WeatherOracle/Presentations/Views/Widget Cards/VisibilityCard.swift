@@ -26,8 +26,8 @@ struct VisibilityCard: View {
             Spacer()
             
             Text(weatehrState)
-            .font(.caption)
-            .offset(y: -5)
+                .font(.caption)
+                .offset(y: -5)
         }
         .foregroundColor(.white)
     }

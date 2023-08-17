@@ -31,7 +31,7 @@ struct Compass: View {
                     }
                 }
             
-             
+            
             VStack (spacing: 60){
                 Text("N")
                 Text("S")

@@ -18,7 +18,7 @@ class HomeViewModel : ObservableObject{
     @Published var widgetCardData : [WidgetForecast] = []
     private let getWeatherData = GetWeatherData()
     private let getAQI = GetAQI()
-   
+    
     // MARK: - Waiting for response from user
     private lazy var locationManager: LocationManager = {
         LocationManager { [weak self] latitude, longitude in
@@ -70,8 +70,8 @@ class HomeViewModel : ObservableObject{
         }
         
         for item in hourlyArray.prefix(24) {
-                let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
-                let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp, timeZoneOffset: weatherData?.timezoneOffset ?? 0)
+            let epochTimestamp: TimeInterval = TimeInterval(item.dt ?? 0)
+            let date = TimeConverter.convertEpochToDate(epoch: epochTimestamp, timeZoneOffset: weatherData?.timezoneOffset ?? 0)
             hourlyData.append(WeatherForcast(date: date,
                                              temperature: Int(round(item.temp ?? 0)),
                                              rainPercentage: item.pop ?? 0,

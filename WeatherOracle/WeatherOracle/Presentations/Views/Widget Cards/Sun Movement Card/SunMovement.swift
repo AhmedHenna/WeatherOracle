@@ -14,7 +14,7 @@ struct SunMovement: View {
     var strokeColor : LinearGradient
     var sunColor : Color
     
-
+    
     
     var body: some View {
         let circlePosition = CGPoint(x: 0, y: 133)
@@ -35,7 +35,7 @@ struct SunMovement: View {
         }
         .frame(width: 160, height: 45)
     }
-
+    
 }
 
 

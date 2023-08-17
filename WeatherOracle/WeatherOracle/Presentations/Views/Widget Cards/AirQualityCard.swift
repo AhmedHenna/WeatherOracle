@@ -19,7 +19,7 @@ struct AirQualityCard: View {
     
     var content: some View{
         VStack (alignment: .leading, spacing: 5){
-    
+            
             Spacer()
             
             HStack (spacing: 3){
@@ -29,14 +29,14 @@ struct AirQualityCard: View {
             }
             
             IndexMeter(indexValue: aqiValue - 1, numberOfValues: 4, barColor: Color.linearAirQualityMeter)
-    
+            
             Spacer()
             
             Text(airQualityDescription(aqiValue: aqiValue))
-            .font(.caption)
-            .lineLimit(nil)
-            .offset(y:-5)
-            .fixedSize(horizontal: false, vertical: true)
+                .font(.caption)
+                .lineLimit(nil)
+                .offset(y:-5)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .foregroundColor(.white)
     }

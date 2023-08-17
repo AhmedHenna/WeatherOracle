@@ -30,14 +30,14 @@ struct UVIndexCard: View {
             }
             
             IndexMeter(indexValue: uviValue, numberOfValues: 11, barColor: Color.linearUVIndexMeter)
-    
+            
             Spacer()
             
             Text("Use sun protection from \(startTime)-\(endTime).")
-            .font(.caption)
-            .lineLimit(nil)
-            .offset(y:-5)
-            .fixedSize(horizontal: false, vertical: true)
+                .font(.caption)
+                .lineLimit(nil)
+                .offset(y:-5)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .foregroundColor(.white)
     }

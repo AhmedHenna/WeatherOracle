@@ -13,19 +13,8 @@ class SearchViewModel: ObservableObject {
     @Published var weatherData : Weather? = nil
     private let getCities = GetCities()
     private let getWeatherData = GetWeatherData()
-    
-    private lazy var locationManager: LocationManager = {
-        LocationManager { [weak self] latitude, longitude in
-            self?.fetchWeatherData(lat: latitude, lon: longitude)
-        }
-    }()
-    
-    init() {
-        locationManager.requestLocationUpdates()
-    }
-    
-    
-     func fetchCities(with searchText: String) {
+ 
+    func fetchCities(with searchText: String) {
         getCities.execute(with: searchText) { [weak self] cities in
             DispatchQueue.main.async {
                 self?.cities = cities

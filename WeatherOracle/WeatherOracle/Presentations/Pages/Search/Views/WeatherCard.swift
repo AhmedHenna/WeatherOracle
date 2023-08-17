@@ -77,7 +77,6 @@ struct WeatherCard: View {
 struct WeatherCard_Previews: PreviewProvider {
     static var previews: some View {
         WeatherCard(forecast: Forecast(date: .now, weather: "Clear", probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun")) {
-            // onDelete action
         }
         .preferredColorScheme(.dark)
     }
