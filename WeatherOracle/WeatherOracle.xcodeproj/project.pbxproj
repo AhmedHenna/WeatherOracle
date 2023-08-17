@@ -68,6 +68,7 @@
 		29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */; };
 		29DB76A92A771AB0007A4373 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB76A82A771AB0007A4373 /* Mapping.swift */; };
 		29DE30AB2A8E2A8800923AD4 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 29DE30AA2A8E2A8800923AD4 /* cities.json */; };
+		29DE30AD2A8E618E00923AD4 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE30AC2A8E618E00923AD4 /* DataPersistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMovement.swift; sourceTree = "<group>"; };
 		29DB76A82A771AB0007A4373 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		29DE30AA2A8E2A8800923AD4 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		29DE30AC2A8E618E00923AD4 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				29105BAC2A67EDD300F5EA67 /* TextHelpers.swift */,
 				29DB76A82A771AB0007A4373 /* Mapping.swift */,
 				298503DB2A7C370E00917D9C /* WidgetHelper.swift */,
+				29DE30AC2A8E618E00923AD4 /* DataPersistence.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */,
 				294191562A8B85A6005112C8 /* ResultsView.swift in Sources */,
 				29930CAE2A5C2085007F82C6 /* ForecastPeriod.swift in Sources */,
+				29DE30AD2A8E618E00923AD4 /* DataPersistence.swift in Sources */,
 				29C3B76D2A6C57B700951674 /* WeatherDataSource.swift in Sources */,
 				295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */,
 				29A941F92A6C1EAB005B4272 /* CityRepository.swift in Sources */,

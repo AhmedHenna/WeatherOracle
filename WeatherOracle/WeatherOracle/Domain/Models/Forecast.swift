@@ -17,6 +17,8 @@ struct Forecast: Identifiable, Decodable, Encodable {
     var low: Int
     var location: String
     var icon: String
+    var lat: Double = 0
+    var lon: Double = 0
 }
 
 struct WeatherForcast: Identifiable {

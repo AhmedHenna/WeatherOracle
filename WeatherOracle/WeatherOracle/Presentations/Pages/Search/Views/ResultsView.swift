@@ -1,3 +1,10 @@
+//
+//  ResultsView.swift
+//  WeatherOracle
+//
+//  Created by Ahmed Henna on 8/15/23.
+//
+
 import SwiftUI
 
 struct ResultsView: View {
@@ -14,8 +21,6 @@ struct ResultsView: View {
             ScrollView {
                 VStack {
                     searchResults
-                    Text(viewModel.cities.indices.contains(selectedIndex) ? viewModel.cities[selectedIndex].city : "")
-                        .foregroundColor(.clear)
                 }
                 .padding(20)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -39,10 +44,6 @@ struct ResultsView: View {
         .onAppear {
             viewModel.fetchCities(with: text)
         }
-    }
-    
-    private func savePopulatedCities() {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(populatedCities), forKey: "PopulatedCities")
     }
     
     var searchResults: some View {
@@ -72,11 +73,14 @@ struct ResultsView: View {
                                                                            time: TimeConverter.getTimeOfDay(currentTime:  weatherData.current?.dt ?? 1,
                                                                                                             sunset: weatherData.current?.sunset ?? 1,
                                                                                                             sunrise: weatherData.current?.sunrise ?? 1,
-                                                                                                            offset: weatherData.timezoneOffset ?? 1)))
+                                                                                                            offset: weatherData.timezoneOffset ?? 1)),
+                                                           lat: Double(item.lat) ?? 0,
+                                                           lon: Double(item.lng) ?? 0
+                                    )
                                     
                                     if !populatedCities.contains(where: { $0.location == newItem.location }) {
                                         populatedCities.append(newItem)
-                                        savePopulatedCities()
+                                        DataPersistence(cities: $populatedCities).savePopulatedCities()
                                     }
                                 }
                             }
@@ -91,12 +95,6 @@ struct ResultsView: View {
                                     .foregroundColor(.secondary)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .contextMenu {
-                            Button("Delete") {
-                                populatedCities.remove(at: index)
-                                savePopulatedCities()
                             }
                         }
                     }

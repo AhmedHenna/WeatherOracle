@@ -24,7 +24,8 @@ struct SearchView: View {
                                        offset: viewModel.weatherData?.timezoneOffset ?? 1))
         }
         .onAppear {
-            loadPersistedData()
+            DataPersistence(cities: $cities).loadPersistedData()
+            refreshDataFromAPI()
         }
     }
     
@@ -55,7 +56,7 @@ struct SearchView: View {
             VStack(alignment: .leading, spacing: 20) {
                 ForEach(cities) { city in
                     WeatherCard(forecast: city) {
-                        removeCity(city)
+                        DataPersistence(cities: $cities).removeCity(city)
                     }
                 }
             }
@@ -64,25 +65,39 @@ struct SearchView: View {
         }
     }
     
-    private func removeCity(_ city: Forecast) {
-        if let index = cities.firstIndex(where: { $0.id == city.id }) {
-            cities.remove(at: index)
-            savePopulatedCities()
-        }
-    }
-    
-    private func savePopulatedCities() {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(cities), forKey: "PopulatedCities")
-    }
-    
-    private func loadPersistedData() {
-        if let data = UserDefaults.standard.value(forKey: "PopulatedCities") as? Data {
-            if let decodedCities = try? PropertyListDecoder().decode([Forecast].self, from: data) {
-                cities = decodedCities
+    private func refreshDataFromAPI() {
+        DispatchQueue.global().async {
+            for cityIndex in cities.indices {
+                var city = cities[cityIndex]
+                
+                viewModel.fetchWeatherData(lat: city.lat, lon: city.lon)
+                
+                DispatchQueue.main.async {
+                    if let weatherData = viewModel.weatherData {
+                        city.weather = weatherData.current?.weather?.first?.description ?? "Clear"
+                        city.probability = Int(weatherData.current?.rain?.value ?? 0)
+                        city.temperature = Int(round(weatherData.current?.temp ?? 0))
+                        city.high = Int(round(weatherData.daily?.first?.temp?.max ?? 0))
+                        city.low = Int(round(weatherData.daily?.first?.temp?.min ?? 0))
+                        city.icon = mapToIcon(id: weatherData.current?.weather?.first?.id ?? 0,
+                                              time: TimeConverter.getTimeOfDay(currentTime:  weatherData.current?.dt ?? 1,
+                                                                               sunset: weatherData.current?.sunset ?? 1,
+                                                                               sunrise: weatherData.current?.sunrise ?? 1,
+                                                                               offset: weatherData.timezoneOffset ?? 1))
+                        
+                        cities[cityIndex] = city
+                        DataPersistence(cities: $cities).savePopulatedCities()
+                    }
+                }
             }
         }
     }
+
+
+
+    
 }
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
