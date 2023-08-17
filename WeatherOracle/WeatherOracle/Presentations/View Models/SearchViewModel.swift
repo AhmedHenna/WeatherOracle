@@ -33,7 +33,7 @@ class SearchViewModel: ObservableObject {
         }
     }
     
-    private func fetchWeatherData(lat: Double, lon: Double) {
+    func fetchWeatherData(lat: Double, lon: Double) {
         getWeatherData.execute(lat: lat, lon: lon) { [weak self] result in
             switch result {
             case .success(let weatherResponse):

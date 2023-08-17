@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Forecast: Identifiable {
+struct Forecast: Identifiable, Decodable, Encodable {
     var id = UUID()
     var date: Date
-    var weather: WeatherStuff
+    var weather: String
     var probability: Int
-    var temperature: Int
+    var temperature: Int 
     var high: Int
     var low: Int
     var location: String
@@ -53,14 +53,5 @@ struct WidgetForecast : Identifiable {
 extension Forecast {
     static let hour: TimeInterval = 60 * 60
     static let day: TimeInterval = 60 * 60 * 24
-    
-    
-    
-    static let cities: [Forecast] = [
-        Forecast(date: .now, weather: .sunny, probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun"),
-        Forecast(date: .now, weather: .clear, probability: 0, temperature: 20, high: 32, low: 19, location: "Dubai, UAE",icon: "Moon"),
-        Forecast(date: .now, weather: .sunny, probability: 0, temperature: 13, high: 16, low: 8, location: "Toronto, Canada", icon: "Sun"),
-        Forecast(date: .now, weather: .clear, probability: 0, temperature: 23, high: 28, low: 19, location: "Texas, United States", icon: "Moon")
-    ]
 }
 

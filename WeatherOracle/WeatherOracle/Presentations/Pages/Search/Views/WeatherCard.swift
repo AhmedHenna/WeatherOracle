@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherCard: View {
     var forecast: Forecast
+    var onDelete: () -> Void
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -17,7 +18,6 @@ struct WeatherCard: View {
                 weatherContent
                 Spacer()
                 weatherDescription
-                
             }
             .overlay(Image(forecast.icon)
                 .resizable()
@@ -30,9 +30,14 @@ struct WeatherCard: View {
             .padding(.leading, 20)
         }
         .frame(width: 340, height: 180, alignment: .bottom)
+        .contextMenu {
+            Button("Delete") {
+                onDelete()
+            }
+        }
     }
     
-    var backgroundShape : some View{
+    var backgroundShape: some View {
         Trapezoid()
             .fill(Color.linearWidgetBackground)
             .overlay(
@@ -42,7 +47,7 @@ struct WeatherCard: View {
             .frame(width: 340, height: 175)
     }
     
-    var weatherContent : some View{
+    var weatherContent: some View {
         VStack(alignment: .leading, spacing: 8) {
             // MARK: Forecast Temperature
             Text("\(forecast.temperature)°")
@@ -62,8 +67,8 @@ struct WeatherCard: View {
         }
     }
     
-    var weatherDescription : some View{
-        Text(forecast.weather.rawValue)
+    var weatherDescription: some View {
+        Text(forecast.weather.capitalized)
             .font(.footnote)
             .padding(.trailing, 24)
     }
@@ -71,7 +76,9 @@ struct WeatherCard: View {
 
 struct WeatherCard_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCard(forecast: Forecast(date: .now, weather: .clear, probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun"))
-            .preferredColorScheme(.dark)
+        WeatherCard(forecast: Forecast(date: .now, weather: "Clear", probability: 0, temperature: 19, high: 28, low: 22, location: "Cairo, Egypt", icon: "Sun")) {
+            // onDelete action
+        }
+        .preferredColorScheme(.dark)
     }
 }

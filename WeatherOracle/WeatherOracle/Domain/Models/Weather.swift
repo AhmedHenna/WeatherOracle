@@ -7,15 +7,6 @@
 
 import Foundation
 
-enum WeatherStuff: String {
-    case clear = "Clear"
-    case cloudy = "Cloudy"
-    case sunny = "Sunny"
-    case tornado = "Tornado"
-    case windy = "Fast Wind"
-}
-
-
 struct Weather: Codable {
     let lat: Double?
     let lon: Double?
