@@ -12,8 +12,8 @@ import Firebase
 class CityRepository: CityDataSource {
     static let shared = CityRepository()
 
-    func fetchCities(completion: @escaping ([City]) -> Void) {
-        DataInjection.shared.provideFirestoreManager().fetchCities { cities in
+    func fetchCities(with searchText: String, completion: @escaping ([City]) -> Void) {
+        DataInjection.shared.provideJsonManager().fetchCities(with: searchText) { cities in
             completion(cities)
         }
     }

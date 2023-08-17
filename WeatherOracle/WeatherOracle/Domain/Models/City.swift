@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct City: Identifiable {
-    var id = UUID()
+struct City: Hashable, Decodable {
     var country: String
-    var cityName: String
-    var lat: Double
-    var long: Double
+    var city: String
+    var lat: String
+    var lng: String
 }

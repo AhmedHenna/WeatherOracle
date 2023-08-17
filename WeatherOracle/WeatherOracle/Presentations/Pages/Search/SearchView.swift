@@ -8,47 +8,62 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var text = ""
+    @State var showSearch = false
     @StateObject private var viewModel = SearchViewModel()
+    
     
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
+                searchIcon
                 weatherCards
             }
-            .padding(.vertical, 8)
             .background(mapTimeToColor(time: viewModel.weatherData?.current?.dt ?? 1,
                                        sunset: viewModel.weatherData?.current?.sunset ?? 1,
                                        sunrise: viewModel.weatherData?.current?.sunrise ?? 1,
                                        offset: viewModel.weatherData?.timezoneOffset ?? 1))
-            .searchable(text: $text, placement:
-                    .navigationBarDrawer(displayMode: .always), prompt: Text("Cairo, New York, Dubai")){
-                        ForEach(viewModel.cities){ suggestion in
-                            if text == "" {
-                                Button {
-                                    text = suggestion.cityName
-                                } label:{
-                                    Text(suggestion.cityName)
-                                        .searchCompletion(suggestion.cityName)
-                                }
-                            }
-                        }
-                    }
+        }
+        
+    }
+    
+    var searchIcon: some View{
+        HStack{
+            Button {
+                showSearch = true
+            } label: {
+                HStack{
+                    Image(systemName: "magnifyingglass")
+                    Text("Search for a new city")
+                }
+                .font(.body.weight(.bold))
+                .frame(maxWidth: .infinity, maxHeight: 40)
+                .foregroundColor(.secondary)
+                .strokeStyle(cornerRadius: 14)
+                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .padding(20)
+            }
+            .sheet(isPresented: $showSearch) {
+                ResultsView()
+            }
         }
     }
     
     
-    var weatherCards: some View{
-        ScrollView{
+    var weatherCards: some View {
+        ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 ForEach(Forecast.cities) { city in
                     WeatherCard(forecast: city)
                 }
-            }.frame(maxWidth: .infinity)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(10)
         }
-        
     }
 }
+
+
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {

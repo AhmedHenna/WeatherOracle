@@ -22,6 +22,7 @@
 		291C11462A5CA7A600B06919 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C11452A5CA7A600B06919 /* SearchView.swift */; };
 		292B16B82A641EAE00DD0814 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 292B16B72A641EAE00DD0814 /* FirebaseDatabase */; };
 		293363772A685F9A00C11E05 /* AirQualityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293363762A685F9A00C11E05 /* AirQualityCard.swift */; };
+		294191562A8B85A6005112C8 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294191552A8B85A6005112C8 /* ResultsView.swift */; };
 		295398252A6954C200850478 /* WindCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398242A6954C200850478 /* WindCard.swift */; };
 		295398272A6954CC00850478 /* PressureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398262A6954CC00850478 /* PressureCard.swift */; };
 		295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295398282A6958B400850478 /* PressureSemiCircle.swift */; };
@@ -45,7 +46,7 @@
 		299EFA312A682A9D0085C3F1 /* IndexMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299EFA302A682A9D0085C3F1 /* IndexMeter.swift */; };
 		29A941EA2A6C17E2005B4272 /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941E92A6C17E2005B4272 /* CityDataSource.swift */; };
 		29A941EC2A6C180C005B4272 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941EB2A6C180C005B4272 /* City.swift */; };
-		29A941EE2A6C18AE005B4272 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */; };
+		29A941EE2A6C18AE005B4272 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941ED2A6C18AE005B4272 /* JsonManager.swift */; };
 		29A941F12A6C18F5005B4272 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 29A941F02A6C18F5005B4272 /* FirebaseFirestore */; };
 		29A941F32A6C1B29005B4272 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941F22A6C1B29005B4272 /* SearchViewModel.swift */; };
 		29A941F72A6C1BC9005B4272 /* DataInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A941F62A6C1BC9005B4272 /* DataInjection.swift */; };
@@ -66,6 +67,7 @@
 		29C3B7792A6C988300951674 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B7782A6C988300951674 /* LocationManager.swift */; };
 		29D9C2F32A670A5F00F6BD11 /* SunMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */; };
 		29DB76A92A771AB0007A4373 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DB76A82A771AB0007A4373 /* Mapping.swift */; };
+		29DE30AB2A8E2A8800923AD4 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 29DE30AA2A8E2A8800923AD4 /* cities.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,7 @@
 		291C11432A5CA76600B06919 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		291C11452A5CA7A600B06919 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		293363762A685F9A00C11E05 /* AirQualityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityCard.swift; sourceTree = "<group>"; };
+		294191552A8B85A6005112C8 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		295398242A6954C200850478 /* WindCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindCard.swift; sourceTree = "<group>"; };
 		295398262A6954CC00850478 /* PressureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureCard.swift; sourceTree = "<group>"; };
 		295398282A6958B400850478 /* PressureSemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureSemiCircle.swift; sourceTree = "<group>"; };
@@ -105,7 +108,7 @@
 		299EFA302A682A9D0085C3F1 /* IndexMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexMeter.swift; sourceTree = "<group>"; };
 		29A941E92A6C17E2005B4272 /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
 		29A941EB2A6C180C005B4272 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		29A941ED2A6C18AE005B4272 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 		29A941F22A6C1B29005B4272 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		29A941F62A6C1BC9005B4272 /* DataInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInjection.swift; sourceTree = "<group>"; };
 		29A941F82A6C1EAB005B4272 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		29C3B7782A6C988300951674 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		29D9C2F22A670A5F00F6BD11 /* SunMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMovement.swift; sourceTree = "<group>"; };
 		29DB76A82A771AB0007A4373 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
+		29DE30AA2A8E2A8800923AD4 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +314,7 @@
 		29B02BC12A5204F3008652B5 /* WeatherOracle */ = {
 			isa = PBXGroup;
 			children = (
+				29DE30AA2A8E2A8800923AD4 /* cities.json */,
 				29B02BC22A5204F3008652B5 /* WeatherOracleApp.swift */,
 				29A941F52A6C1BB2005B4272 /* Core */,
 				29A941E72A6C173F005B4272 /* Data */,
@@ -343,7 +348,7 @@
 		29C3B7762A6C819D00951674 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				29A941ED2A6C18AE005B4272 /* FirestoreManager.swift */,
+				29A941ED2A6C18AE005B4272 /* JsonManager.swift */,
 				29C3B7742A6C819900951674 /* OpenWeatherAPI.swift */,
 			);
 			path = Managers;
@@ -390,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				29930CA62A5C1E1B007F82C6 /* WeatherCard.swift */,
+				294191552A8B85A6005112C8 /* ResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DE30AB2A8E2A8800923AD4 /* cities.json in Resources */,
 				29B02BCA2A5204F4008652B5 /* Preview Assets.xcassets in Resources */,
 				29B02BC72A5204F4008652B5 /* Assets.xcassets in Resources */,
 				298DFFE72A64973800ECC3F6 /* GoogleService-Info.plist in Resources */,
@@ -502,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29BA6AD92A5B760400E3C514 /* InnerShadow.swift in Sources */,
+				294191562A8B85A6005112C8 /* ResultsView.swift in Sources */,
 				29930CAE2A5C2085007F82C6 /* ForecastPeriod.swift in Sources */,
 				29C3B76D2A6C57B700951674 /* WeatherDataSource.swift in Sources */,
 				295398292A6958B400850478 /* PressureSemiCircle.swift in Sources */,
@@ -519,7 +527,7 @@
 				29105BAB2A67EBB600F5EA67 /* RainfallCard.swift in Sources */,
 				291A10752A5E0AB900F11549 /* Blur.swift in Sources */,
 				299CFDF02A65853400FABC2A /* TimeConverter.swift in Sources */,
-				29A941EE2A6C18AE005B4272 /* FirestoreManager.swift in Sources */,
+				29A941EE2A6C18AE005B4272 /* JsonManager.swift in Sources */,
 				29105BA72A67E3CF00F5EA67 /* HumidityCard.swift in Sources */,
 				29B02BC52A5204F3008652B5 /* ContentView.swift in Sources */,
 				295D2EFC2A588A36005F7EF0 /* HomeView.swift in Sources */,

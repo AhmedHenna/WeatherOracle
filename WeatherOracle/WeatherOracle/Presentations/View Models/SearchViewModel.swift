@@ -21,13 +21,12 @@ class SearchViewModel: ObservableObject {
     }()
     
     init() {
-        fetchCities()
         locationManager.requestLocationUpdates()
     }
     
     
-    private func fetchCities(){
-        getCities.execute { [weak self] cities in
+     func fetchCities(with searchText: String) {
+        getCities.execute(with: searchText) { [weak self] cities in
             DispatchQueue.main.async {
                 self?.cities = cities
             }
@@ -35,15 +34,15 @@ class SearchViewModel: ObservableObject {
     }
     
     private func fetchWeatherData(lat: Double, lon: Double) {
-         getWeatherData.execute(lat: lat, lon: lon) { [weak self] result in
-             switch result {
-             case .success(let weatherResponse):
-                 DispatchQueue.main.async {
-                     self?.weatherData = weatherResponse
-                 }
-             case .failure(let error):
-                 print("Error fetching weather data: \(error.localizedDescription)")
-             }
-         }
-     }
+        getWeatherData.execute(lat: lat, lon: lon) { [weak self] result in
+            switch result {
+            case .success(let weatherResponse):
+                DispatchQueue.main.async {
+                    self?.weatherData = weatherResponse
+                }
+            case .failure(let error):
+                print("Error fetching weather data: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -16,8 +16,8 @@ class DataInjection {
         return CityRepository.shared
     }
 
-    func provideFirestoreManager() -> FirestoreManager {
-        return FirestoreManager.shared
+    func provideJsonManager() -> JsonManager {
+        return JsonManager.shared
     }
 }
 

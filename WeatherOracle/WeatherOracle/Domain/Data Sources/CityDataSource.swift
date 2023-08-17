@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CityDataSource {
-    func fetchCities(completion: @escaping ([City]) -> Void)
+    func fetchCities(with searchText: String, completion: @escaping ([City]) -> Void)
 }

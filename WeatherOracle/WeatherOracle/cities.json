@@ -1,0 +1,108 @@
+[
+    {
+      "country": "Egypt",
+      "city": "Cairo",
+      "lat": "30.06263",
+      "lng": "31.24967"
+    },
+    {
+      "country": "United Kingdom",
+      "city": "London",
+      "lat": "51.50853",
+      "lng": "-0.12574"
+    },
+    {
+      "country": "Australia",
+      "city": "Sydney",
+      "lat": "-33.86785",
+      "lng": "151.20732"
+    },
+    {
+      "country": "United States",
+      "city": "California",
+      "lat": "38.3004",
+      "lng": "-76.50745"
+    },
+    {
+      "country": "United States",
+      "city": "New York City",
+      "lat": "40.71427",
+      "lng": "-74.00597"
+    },
+    {
+      "country": "Turkey",
+      "city": "Istanbul",
+      "lat": "41.01384",
+      "lng": "28.94966"
+    },
+    {
+      "country": "Japan",
+      "city": "Tokyo",
+      "lat": "35.6895",
+      "lng": "139.69171"
+    },
+    {
+      "country": "Netherlands",
+      "city": "Amsterdam",
+      "lat": "52.37403",
+      "lng": "4.88969"
+    },
+    {
+      "country": "France",
+      "city": "Paris",
+      "lat": "48.85341",
+      "lng": "2.3488"
+    },
+    {
+      "country": "United Arab Emirates",
+      "city": "Dubai",
+      "lat": "25.07725",
+      "lng": "55.30927"
+    },
+    {
+      "country": "Italy",
+      "city": "Rome",
+      "lat": "41.89193",
+      "lng": "12.51133"
+    },
+    {
+      "country": "Germany",
+      "city": "Berlin",
+      "lat": "52.52437",
+      "lng": "13.41053"
+    },
+    {
+      "country": "Brazil",
+      "city": "Rio de Janeiro",
+      "lat": "-22.90642",
+      "lng": "-43.18223"
+    },
+    {
+      "country": "Canada",
+      "city": "Toronto",
+      "lat": "43.70011",
+      "lng": "-79.4163"
+    },
+    {
+      "country": "Argentina",
+      "city": "Buenos Aires",
+      "lat": "-34.61315",
+      "lng": "-58.37723"
+    },
+    {
+      "country": "China",
+      "city": "Beijing",
+      "lat": "39.9075",
+      "lng": "116.39723"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+]
