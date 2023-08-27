@@ -101,3 +101,15 @@ func getVisibilityDescription(visibility: Int) -> String {
         return "Unknown Visibility"
     }
 }
+
+func replaceUnderscoreWithSpace(_ input: String) -> String {
+    var result = input
+    let components = input.components(separatedBy: "_")
+    
+    if components.count > 1 {
+        result = components.joined(separator: " ")
+    }
+    
+    return result
+}
+

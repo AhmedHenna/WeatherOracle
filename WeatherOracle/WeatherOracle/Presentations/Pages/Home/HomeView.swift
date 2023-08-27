@@ -54,8 +54,8 @@ struct HomeView: View {
     
     var currentWeather : some View{
         VStack(alignment: .center, spacing: -10 * (1 - bottomSheetTranslationChanged)) {
-            let cityName = viewModel.weatherData?.timezone
-            Text(cityName?.components(separatedBy: "/").last ?? "")
+            let cityName = replaceUnderscoreWithSpace(viewModel.weatherData?.timezone ?? "")
+            Text(cityName.components(separatedBy: "/").last ?? "")
                 .font(.largeTitle)
                 .foregroundColor(Color("Text Primary"))
             
@@ -64,6 +64,7 @@ struct HomeView: View {
                 let currentTemp = String(Int(round(viewModel.weatherData?.current?.temp ?? 0)))
                 let weatherDescription = String(viewModel.weatherData?.current?.weather?.first?.description ?? "")
                     .capitalized
+                
                 
                 layout{
                     HStack {
